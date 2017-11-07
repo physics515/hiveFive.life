@@ -1,0 +1,104 @@
+<!doctype HTML>
+<html lang="en" width="100%" height="100%">
+    <head>
+        <meta charset="UTF-8">
+        <title>HiveFive.Life</title>
+        <script type="text/javascript" src="/hivefive/poll/jquery.js"></script>
+        <script type="text/javascript" src="/hivefive/poll/ajax-poll.php"></script>
+        <script src="https://authedmine.com/lib/simple-ui.min.js" async></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/hivefive/style.css">
+        <script type="text/javascript">
+            function voteClick() {
+                var x = document.getElementById("ajax-poll");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+                var y = document.getElementById("coinhive-miner");
+                if (y.style.display === "none") {
+                    y.style.display = "block";
+                } else {
+                    y.style.display = "none";
+                }
+                var z = document.getElementById("votePage");
+                if (z.value === "VOTE!") {
+                    z.value = "MINE!";
+                } else {
+                    z.value = "VOTE!";
+                }
+
+            }
+        </script>
+    </head>
+    <body bgcolor="#362A0B">
+        <main>
+            <center>
+                <img class="logo" src="images/hivefivelogo-02.svg">
+                <div id="coinhive-miner" class="coinhive-miner"
+                    data-key="jh99H4UZ9RDIM3OF5E6wZO7fLQkNBmWK"
+                    data-autostart="true"
+                    data-whitelabel="true"
+                    data-background="#362A0B"
+                    data-text="#FFE57A"
+                    data-action="#FFE57A"
+                    data-graph="#FFC90D"
+                    data-threads=""
+                    data-throttle="0.3">
+                    <em>Loading...</em>
+                </div>
+                <div id="ajax-poll" class='ajax-poll' tclass='poll-simple' style="display:none;"></div>
+            </center>
+        </main>
+        <footer>
+            <input class="button" id="votePage" onclick="voteClick()" type="button" value="VOTE!">
+        </footer>
+        <!-- <script src="https://authedmine.com/lib/authedmine.min.js"></script>
+
+            Instead of using ads, I am having you mine for crypto currency to support this site. Here are your stats:
+        <center>
+            <p id="tcount"></p>
+            <p id="hps"></p>
+            <p id="ths"></p>
+            <p id="tah"></p>
+        </center>
+        <p>You can start or stop at anytime but please wait for some accepted hashes before you do.</p>
+        <center>
+            <p id="minebutton"></p>
+        </center>
+        <p>Visit <a href="https://coin-hive.com/">Coin Hive</a> to learn more about how this works</a>
+
+        <script type="text/javascript">
+            var miner = new CoinHive.User('jh99H4UZ9RDIM3OF5E6wZO7fLQkNBmWK', 'HiveFiveLife', {
+	            autoThreads: true,
+	            throttle: 0.3,
+	            forceASMJS: false,
+	            theme: 'light',
+	            language: 'auto'
+                });
+            miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
+
+            // Update stats once per second
+            setInterval(function() {
+                var threadCount = miner.getNumThreads();
+                var hashesPerSecond = Math.round(miner.getHashesPerSecond() * 100) / 100;
+                var totalHashes = miner.getTotalHashes();
+                var acceptedHashes = miner.getAcceptedHashes() / 256;
+                // Output to HTML elements...
+                if (miner.isRunning()) {
+                    document.getElementById("tcount").innerHTML = "Threads: " + threadCount;
+                    document.getElementById("hps").innerHTML = "hashes per second: " + hashesPerSecond;
+                    document.getElementById("ths").innerHTML = "Total Hashes: " + totalHashes;
+                    document.getElementById("tah").innerHTML = "Accepted Hashes: " + acceptedHashes;
+                    document.getElementById("minebutton").innerHTML = "<button onclick=\"miner.stop()\">Stop Mining</button>";
+                } else {
+                    document.getElementById("hps").innerHTML = "Please click start";
+                    document.getElementById("ths").innerHTML = "to support";
+                    document.getElementById("tah").innerHTML = "this site";
+                    document.getElementById("minebutton").innerHTML = "<button onclick=\"miner.start(CoinHive.FORCE_EXCLUSIVE_TAB)\">Start Mining</button>";
+                }
+            }, 1000);
+        </script> -->
+    </body>
+</html>

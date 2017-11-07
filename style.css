@@ -1,0 +1,64 @@
+main {
+    width:100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+footer{
+    color:#FFE57A;
+    bottom:0;
+    width:100%;
+    position: absolute;
+    border-top-style: solid;
+    border-top-color: #FFC90D;
+    border-top-width: 1px;
+    padding-left: 0 !important;
+    margin: 0 !important;
+}
+
+.logo{
+    align:center;
+    opacity:.5;
+    width:30%;
+    max-width:500px;
+    min-width:300px;
+}
+
+.coinhive-miner{
+    width:30%;
+    max-width:500px;
+    min-width:300px;
+    display:block;
+}
+
+.button{
+    right:0px;
+	top:0px;
+	width:100%;
+	height:40px;
+	color:#FFE57A;
+	font-weight:bold;
+	font-size:12px;
+	background-color:#362A0B;
+	border:1px solid #FFC90D;
+	border-radius:0px;
+    cursor:pointer;
+    padding-left: 0 !important;
+    margin: 0 !important;
+}
+
+body{
+    margin:0 !important;
+}th:30%;
+    max-width:500px;
+    min-width:300px;
+}
+
+.ajax-poll{
+	width:30%;
+    max-width:500px;
+    min-width:300px;
+    display:none;
+}
