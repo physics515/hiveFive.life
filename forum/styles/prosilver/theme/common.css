@@ -4,6 +4,7 @@ html {
 	font-size: 100%;
 	/* Always show a scrollbar for short pages - stops the jump when the scrollbar appears. non-IE browsers */
 	height: 101%;
+	width: 100%;
 }
 
 body {
@@ -13,6 +14,8 @@ body {
 	margin: 0;
 	padding: 12px 0;
 	word-wrap: break-word;
+	min-height: 100%;
+	height: auto;
 	-webkit-print-color-adjust: exact;
 }
 
@@ -159,6 +162,11 @@ a:hover	{ text-decoration: underline; }
 
 .page-footer {
 	clear: both;
+	position: absolute;
+	top: 105%;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 .page-footer h3 {

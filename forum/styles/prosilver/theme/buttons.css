@@ -49,6 +49,7 @@
 }
 
 .button-search-end {
+    visibility: hidden;
 	border-left-width: 0;
 	border-radius: 0 4px 4px 0;
 }
