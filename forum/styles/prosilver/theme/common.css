@@ -140,6 +140,15 @@ a:hover	{ text-decoration: underline; }
 
 /* Main blocks
 ---------------------------------------- */
+
+html{
+	height: 100% !important;
+}
+
+body{
+	padding: 0 !important;
+}
+
 .wrap {
 	border: 1px solid transparent;
 	border-radius: 8px;
@@ -156,24 +165,28 @@ a:hover	{ text-decoration: underline; }
 }
 
 .page-body {
-	margin: 4px 0;
+	margin: 0;
 	clear: both;
+	width:100%;
 }
 
 .page-footer {
 	clear: both;
 	position: absolute;
-    bottom: 0;
+	bottom: 0;
+	left: 0;
 	width: 100%;
     border-top-style: solid;
     border-top-color: #FFC90D;
     border-top-width: 1px;
     padding-left: 0 !important;
-    margin: 0 !important;
+	margin: 0 !important;
+	vertical-align: top;
+	height: 40px;
 }
 
 .page-footer h3 {
-	margin-top: 20px;
+	margin-top: 0px;
 }
 
 .logo {
