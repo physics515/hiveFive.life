@@ -167,7 +167,7 @@ body{
 .page-body {
 	margin: 0;
 	clear: both;
-	width:100%;
+	width:100% !important;
 }
 
 .page-footer {
