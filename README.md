@@ -1,7 +1,7 @@
 # hiveFive.life
 Mine Monero cryptocurrency for a user selected cause or chairty.
 
-# Style Guidlines
+## Style Guidlines
 
 Our style consist of a five color Honeybee pallet, "Sweet Corn" #FFE57A, "Bronze Olive" #59460D, "Turbo" #FFC920, "Golden Brown" #865E00, and "Grandis" #FFCF6E.
 
