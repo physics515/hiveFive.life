@@ -163,10 +163,13 @@ a:hover	{ text-decoration: underline; }
 .page-footer {
 	clear: both;
 	position: absolute;
-	top: 105%;
-    left: 0;
     bottom: 0;
-    width: 100%;
+	width: 100%;
+    border-top-style: solid;
+    border-top-color: #FFC90D;
+    border-top-width: 1px;
+    padding-left: 0 !important;
+    margin: 0 !important;
 }
 
 .page-footer h3 {
