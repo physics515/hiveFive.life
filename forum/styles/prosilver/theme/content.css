@@ -170,7 +170,7 @@ dl a.row-item-link {						/* topic row icon links */
 dd.posts, dd.topics, dd.views, dd.extra, dd.mark {
 	width: 80px;
 	text-align: center;
-	line-height: 2.2em;
+	line-height: 3em;
 	font-size: 1.2em;
 }
 
