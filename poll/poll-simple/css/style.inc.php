@@ -255,6 +255,8 @@ $style=<<<_EOM_
 .%tclass% .poll-input-img {
 	display:none;
 }
+
+
 </style>
 _EOM_;
 $this->addStyle($style);
