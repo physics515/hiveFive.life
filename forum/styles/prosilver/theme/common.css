@@ -150,12 +150,17 @@ body{
 }
 
 .wrap {
-	border: 1px solid transparent;
-	border-radius: 8px;
+	border-radius: 0;
 	margin: 0 auto;
+	padding-top: 0px;
+	padding-bottom: 40px;
+	padding-left: 5%;
+	padding-right: 5%;
+	/*
+	border: 1px solid transparent;
 	max-width: 1152px;
 	min-width: 625px;
-	padding: 15px;
+	*/
 }
 
 @media only screen and (max-width: 1220px), only screen and (max-device-width: 1220px) {
