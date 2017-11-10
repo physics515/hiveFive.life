@@ -35,7 +35,7 @@
 			<!-- [BEGIN] Vote & View Buttons -->
 
 			<div class='ap-ref-tipbox' style='text-align:center;margin-bottom:20px;'>
-				<script src="https://authedmine.com/lib/captcha.min.js" async></script>
+				<script src="/hivefive/captcha/captcha.min.js" async></script>
 				<script>
 					function myCaptchaCallback(token) {
 						//alert('Hashes reached. Token is: ' + token);
