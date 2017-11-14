@@ -5,8 +5,14 @@ body{
     margin:0 !important;
 }
 
-main {
+header{
+  width:100%;
+  text-align:center;
+}
+
+main{
     width:100%;
+    max-height: calc(100% - 80px);
     position: fixed;
     top: 50%;
     left: 50%;
@@ -23,6 +29,8 @@ footer{
     border-top-width: 1px;
     padding-left: 0 !important;
     margin: 0 !important;
+    text-align: center;
+    display: table;
 }
 
 div{
@@ -59,11 +67,24 @@ label {
 	margin:2px 0;
 }
 
-.logo{
+.logo-mine{
     align:center;
     opacity:.5;
     width:100%;
     max-width:720px;
+}
+
+.logo-vote{
+  display: none;
+  opacity:.1;
+  width:100%;
+  /*max-width:720px;*/
+  min-width: 720px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
 }
 
 .coinhive-miner{
@@ -75,17 +96,20 @@ label {
 .button{
   right:0px;
 	top:0px;
-	width:100%;
+	width:50%;
+  max-width: 720px;
 	height:40px;
 	color:#FFE57A;
 	font-weight:bold;
-	font-size:12px;
+	font-size:10pt;
 	background-color:#362A0B;
 	border:1px solid #FFC90D;
 	border-radius:0px;
   cursor:pointer;
   padding-left: 0 !important;
+  padding-top: 4px;
   margin: 0 !important;
+  display: table-cell;
 }
 
 /*
