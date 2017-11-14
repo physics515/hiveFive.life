@@ -1,30 +1,4 @@
-/*
-  BEGIN MAIN PAGE
-*/
-body{
-    margin:0 !important;
-}
-
-main {
-    width:100%;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-footer{
-    color:#FFE57A;
-    bottom:0;
-    width:100%;
-    position: absolute;
-    border-top-style: solid;
-    border-top-color: #FFC90D;
-    border-top-width: 1px;
-    padding-left: 0 !important;
-    margin: 0 !important;
-}
-
+/* [BEGIN] CSS Reset */
 div{
 	margin:0;
 	padding:0;
@@ -33,17 +7,27 @@ div{
 	font-style:normal;
 	font-weight:normal;
 	vertical-align:middle;
+	background-color:transparent;
 	font-family: "Roboto";
 	box-shadow:none;
 	font-kerning: none;
-  letter-spacing: 1px;
 }
 
-table, tbody, tfoot, thead, tr, th, td {
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
 	margin:0;
 	padding:0;
 	border:0;
+	font-size:100%;
+	font-style:normal;
+	font-weight:normal;
 	vertical-align:middle;
+	background-color:transparent;
+	font-family: "Helvetica";
 	box-shadow:none;
 }
 
@@ -55,54 +39,28 @@ img {
 	box-shadow:none;
 }
 
+table {
+}
+
 label {
 	margin:2px 0;
+	font-style:normal;
+	font-weight:normal;
 }
 
-.logo{
-    align:center;
-    opacity:.5;
-    width:100%;
-    max-width:720px;
+button {
+	color:black;
 }
 
-.coinhive-miner{
-    height:250px;
-    width:100%;
-    max-width:720px;
-}
-
-.button{
-  right:0px;
-	top:0px;
-	width:100%;
-	height:40px;
-	color:#FFE57A;
-	font-weight:bold;
-	font-size:12px;
-	background-color:#362A0B;
-	border:1px solid #FFC90D;
-	border-radius:0px;
-  cursor:pointer;
-  padding-left: 0 !important;
-  margin: 0 !important;
-}
-
-/*
-  END MAIN PAGE
-*/
+/* [END] CSS Reset */
 
 
 
 
-/*
-  BEGIN POLL FRONT
-*/
 
-.ajax-poll{
-  width:100%;
-  max-width:720px;
-  display:none;
+
+button {
+	font-family: "Verdana", "Arial", "Helvetica", "serif";
 }
 
 .poll-inner {
@@ -168,28 +126,13 @@ label {
 }
 
 .poll-button {
-  padding: 0;
-	width:calc(50% - 2px);
-	line-height: 20pt;
+	right:0px;
+	top:0px;
+	width:40%;
+	height:40px;
 	color:#FFE57A;
 	font-weight:bold;
-	font-size:10pt;
-	background-color:transparent;
-	border:1px solid #FFC90D;
-	border-radius:0px;
-	cursor:pointer;
-}
-
-.ap-clear-block {
-  padding-top: 4px;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-	width:calc(100%);
-  line-height: 20pt;
-	color:#FFE57A;
-	font-weight:bold;
-	font-size:10pt;
+	font-size:12px;
 	background-color:#362A0B;
 	border:1px solid #FFC90D;
 	border-radius:0px;
@@ -206,11 +149,27 @@ label {
 	font-weight:bold;
 	margin-bottom:20px;
 	padding:3px 0;
+
 	border:1px solid #000000;
 	-moz-border-radius: 0px;
 	-webkit-border-radius: 0px;
 	-khtml-border-radius: 0px;
 	border-radius: 0px;
+}
+
+.ap-clear-block {
+	position:static;
+	right:0px;
+	top:0px;
+	width:80%;
+	height:40px;
+	color:#FFE57A;
+	font-weight:bold;
+	font-size:12px;
+	background-color:#362A0B;
+	border:1px solid #FFC90D;
+	border-radius:0px;
+	cursor:pointer;
 }
 
 /*-- tipbox --*/
