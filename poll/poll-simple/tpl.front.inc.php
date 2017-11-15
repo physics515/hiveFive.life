@@ -9,7 +9,7 @@
 	<div class='poll-inner'>
 		<img class="poll-input-img" src="<?php echo $poll->getFolderUrl(); ?>images/<?php echo $poll->attr( "vote-input" ); ?>.png" />
 		<form class='poll-form'>
-			<div class='poll-title'>
+			<div class='poll-title' id="fittext-poll-title">
 				<?php echo $poll->attr( "title" ); ?>
 			</div>
 

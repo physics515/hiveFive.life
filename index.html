@@ -1,14 +1,6 @@
 <!doctype HTML>
 <html lang="en" width="100%" height="100%">
     <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
-        <script>
-          WebFont.load({
-            google: {
-              families: ['Roboto']
-            }
-          });
-        </script>
         <meta charset="UTF-8">
         <title>HiveFive.Life</title>
         <link rel="stylesheet" type="text/css" href="/hivefive/style.css">
@@ -16,7 +8,10 @@
         <script type="text/javascript" src="/hivefive/poll/ajax-poll.php"></script>
         <script src="https://authedmine.com/lib/simple-ui.min.js" async></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
         <script type="text/javascript">
+
+        // On-Click the Vote! button.
             function voteClick() {
                 var x = document.getElementById("ajax-poll");
                 if (x.style.display === "none") {
@@ -49,6 +44,13 @@
                     b.style.display = "none";
                 }
             }
+
+            //Load Google WebFont
+            WebFont.load({
+              google: {
+                families: ['Roboto']
+              }
+            });
         </script>
     </head>
     <body bgcolor="#362A0B">
@@ -123,5 +125,12 @@
                 }
             }, 1000);
         </script> -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script src="jquery.fittext.js"></script>
+        <script type="text/javascript
+          $(window).resize(function() {
+            $("#fittext-poll-title").fitText();
+          });
+        </script>
     </body>
 </html>
