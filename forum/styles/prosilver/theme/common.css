@@ -12,10 +12,9 @@ body {
 	font-size: 10px;
 	line-height: normal;
 	margin: 0;
-	padding: 12px 0;
+	padding-bottom: 40px;
 	word-wrap: break-word;
-	min-height: 100%;
-	height: auto;
+	min-height: 101%;
 	-webkit-print-color-adjust: exact;
 }
 
@@ -178,15 +177,12 @@ body{
 .page-footer {
 	clear: both;
 	position: absolute;
-	bottom: 0;
+	bottom: 0 !important;
 	left: 0;
 	width: 100%;
-    border-top-style: solid;
-    border-top-color: #FFC90D;
-    border-top-width: 1px;
-    padding-left: 0 !important;
-	margin: 0 !important;
-	vertical-align: top;
+    border-top: solid 1px #ffe57a;
+	margin: 0;
+	/*vertical-align: top;*/
 	height: 40px;
 }
 
