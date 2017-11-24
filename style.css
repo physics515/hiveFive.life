@@ -37,7 +37,7 @@ div{
 	margin:0;
 	padding:0;
 	border:0;
-	font-size:100%;
+	font-size:11pt;
 	font-style:normal;
 	font-weight:normal;
 	vertical-align:middle;
@@ -96,7 +96,7 @@ label {
 .button{
   right:0px;
 	top:0px;
-	width:50%;
+	width: calc(50% - 3px);
   max-width: 720px;
 	height:40px;
 	color:#FFE57A;
@@ -107,8 +107,7 @@ label {
 	border-radius:0px;
   cursor:pointer;
   padding-left: 0 !important;
-  padding-top: 4px;
-  margin: 0 !important;
+  margin: 1.5px !important;
   display: table-cell;
 }
 
@@ -130,7 +129,6 @@ label {
 }
 
 .poll-inner {
-	font-size:10pt;
 }
 
 .poll-form {
@@ -142,7 +140,9 @@ label {
   padding:0;
 	text-align:center;
 	font-size:7vmin;
-	color:#FFE57A;
+	color:#000000;
+  font-family: Roboto Black;
+  opacity: .25;
 }
 
 .poll-table {
@@ -167,7 +167,6 @@ label {
 	width:0;
 	height:12px;
 	background-color:#FFE57A;
-
 	-moz-border-radius: 0px;
 	-webkit-border-radius: 0px;
 	-khtml-border-radius: 0px;
@@ -176,25 +175,26 @@ label {
 
 .poll-button {
   padding: 0;
-	width:calc(50% - 3px);
+  margin:1.5px;
+	width:calc(50% - 6px);
 	height:40px;
 	color:#FFE57A;
 	font-weight:bold;
 	font-size:10pt;
-	background-color:transparent;
+	background-color:#362A0B;
 	border:1px solid #FFC90D;
 	cursor:pointer;
 }
 
 .ap-clear-block {
   padding: 0;
-  margin-top: 3px;
-	width:calc(100%);
+  margin: 1.5px;
+	width:calc(100% - 4px);
   height: 40px;
 	color:#FFE57A;
 	font-weight:bold;
 	font-size:10pt;
-	background-color:transparent;
+	background-color:#362A0B;
 	border:1px solid #FFC90D;
 	cursor:pointer;
 }
