@@ -87,10 +87,21 @@ label {
   z-index: 0;
 }
 
-.coinhive-miner{
+#coinhive-miner{
     height:250px;
     width:100%;
-    max-width:720px;
+	max-width:720px;
+	position: relative;
+	z-index: 1;
+}
+
+#divPlayPause{
+	height:250px;
+    width:100%;
+	max-width:720px;
+	position: relative;
+	z-index: 2;
+	transform: translate(0, -140px);
 }
 
 .button{

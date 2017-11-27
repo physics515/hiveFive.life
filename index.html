@@ -78,28 +78,48 @@ END OLD MINER-->
 
               <div id="coinhive-miner">
                 <script src="https://authedmine.com/lib/authedmine.min.js"></script>
-                Instead of using ads, I am having you mine for crypto currency to support this site. Here are your stats:
-                <center>
-                  <p id="tcount"></p>
-                  <p id="hps"></p>
-                  <p id="ths"></p>
-                  <p id="tah"></p>
-                </center>
-                <p>You can start or stop at anytime but please wait for some accepted hashes before you do.</p>
-                <center>
-                    <p id="minebutton"></p>
-                </center>
-                <p>Visit <a href="https://coin-hive.com/">Coin Hive</a> to learn more about how this works</p>
+
+                <!--
+                        Instead of using ads, I am having you mine for crypto currency to support this site. Here are your stats:
+                        <center>
+                        <p id="tcount"></p>
+                        <p id="hps"></p>
+                        <p id="ths"></p>
+                        <p id="tah"></p>
+                        <p id="run">1</p>
+                        </center>
+                        <p>You can start or stop at anytime but please wait for some accepted hashes before you do.</p>
+                        <center>
+                            <p id="minebutton"></p>
+                        </center>
+                        <p>Visit <a href="https://coin-hive.com/">Coin Hive</a> to learn more about how this works</p>
+                -->
 
                 <script type="text/javascript">
-                    var miner = new CoinHive.User('jh99H4UZ9RDIM3OF5E6wZO7fLQkNBmWK', 'HiveFiveLife', {
+                    miner = new CoinHive.User('jh99H4UZ9RDIM3OF5E6wZO7fLQkNBmWK', 'HiveFiveLife', {
                       autoThreads: true,
                       throttle: 0.3,
                       forceASMJS: false,
                       theme: 'light',
                       language: 'auto'
-                        });
+                    });
+                
                     miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
+                    
+                    setInterval(function() {
+                        THNew = miner.getAcceptedHashes() / 256;
+                    }, 500);
+                    
+                    setInterval(function() {
+                        if((miner.getAcceptedHashes() / 256) > THNew){
+                            //document.getElementById("run").innerHTML++;
+                            document.getElementById("mineAnni").setAttribute("stroke", "#FFC920");
+                            setTimeout(function(){
+                                document.getElementById("mineAnni").setAttribute("stroke", "#FFE57A");
+                            }, 1000);  
+                        }
+                    }, 1000);
+
 
                     // Update stats once per second
                     setInterval(function() {
@@ -109,28 +129,28 @@ END OLD MINER-->
                         var acceptedHashes = miner.getAcceptedHashes() / 256;
                         // Output to HTML elements...
                         if (miner.isRunning()) {
-                            document.getElementById("tcount").innerHTML = "Threads: " + threadCount;
-                            document.getElementById("hps").innerHTML = "hashes per second: " + hashesPerSecond;
-                            document.getElementById("ths").innerHTML = "Total Hashes: " + totalHashes;
-                            document.getElementById("tah").innerHTML = "Accepted Hashes: " + acceptedHashes;
-                            document.getElementById("minebutton").innerHTML = "<button onclick=\"miner.stop()\">Stop Mining</button>";
+                            //document.getElementById("tcount").innerHTML = "Threads: " + threadCount;
+                            //document.getElementById("hps").innerHTML = "hashes per second: " + hashesPerSecond;
+                            //document.getElementById("ths").innerHTML = "Total Hashes: " + totalHashes;
+                            //document.getElementById("tah").innerHTML = "Accepted Hashes: " + acceptedHashes;
+                            //document.getElementById("minebutton").innerHTML = "<button onclick=\"miner.stop()\">Stop Mining</button>";
                             if((Math.round(hashesPerSecond) * .1) > 0){
-                              document.getElementById("p2").setAttribute("begin", "p1.begin+" + Math.round(10 / (hashesPerSecond*.1)) + "s");
-                              document.getElementById("p2-1").setAttribute("begin", "p1.begin+" + Math.round(10 / (hashesPerSecond*.1)) + "s");
-                              document.getElementById("p3").setAttribute("begin", "p2.begin+" + Math.round(10 / (hashesPerSecond*.1)) + "s");
-                              document.getElementById("p3-1").setAttribute("begin", "p2.begin+" + Math.round(10 / (hashesPerSecond*.1)) + "s");
-                              document.getElementById("p4").setAttribute("begin", "p3.begin+" + Math.round(10 / (hashesPerSecond*.1)) + "s");
-                              document.getElementById("p4-1").setAttribute("begin", "p3.begin+" + Math.round(10 / (hashesPerSecond*.1)) + "s");
-                              document.getElementById("p5").setAttribute("begin", "p4.begin+" + Math.round(10 / (hashesPerSecond*.1)) + "s");
-                              document.getElementById("p5-1").setAttribute("begin", "p4.begin+" + Math.round(10 / (hashesPerSecond*.1)) + "s");
-                              document.getElementById("p6").setAttribute("begin", "p5.begin+" + Math.round(10 / (hashesPerSecond*.1)) + "s");
-                              document.getElementById("p6-1").setAttribute("begin", "p5.begin+" + Math.round(10 / (hashesPerSecond*.1)) + "s");
+                              document.getElementById("p2").setAttribute("begin", "p1.begin+" + Math.round(10 / (hashesPerSecond*.1)) + 1 + "s");
+                              document.getElementById("p2-1").setAttribute("begin", "p1.begin+" + Math.round(10 / (hashesPerSecond*.1)) + 1 + "s");
+                              document.getElementById("p3").setAttribute("begin", "p2.begin+" + Math.round(10 / (hashesPerSecond*.1)) + 2 + "s");
+                              document.getElementById("p3-1").setAttribute("begin", "p2.begin+" + Math.round(10 / (hashesPerSecond*.1)) + 2 + "s");
+                              document.getElementById("p4").setAttribute("begin", "p3.begin+" + Math.round(10 / (hashesPerSecond*.1)) + 3 + "s");
+                              document.getElementById("p4-1").setAttribute("begin", "p3.begin+" + Math.round(10 / (hashesPerSecond*.1)) + 3 + "s");
+                              document.getElementById("p5").setAttribute("begin", "p4.begin+" + Math.round(10 / (hashesPerSecond*.1)) + 4 + "s");
+                              document.getElementById("p5-1").setAttribute("begin", "p4.begin+" + Math.round(10 / (hashesPerSecond*.1)) + 4 + "s");
+                              document.getElementById("p6").setAttribute("begin", "p5.begin+" + Math.round(10 / (hashesPerSecond*.1)) + 5 + "s");
+                              document.getElementById("p6-1").setAttribute("begin", "p5.begin+" + Math.round(10 / (hashesPerSecond*.1)) + 5 + "s");
                             }
                         } else {
-                            document.getElementById("hps").innerHTML = "Please click start";
-                            document.getElementById("ths").innerHTML = "to support";
-                            document.getElementById("tah").innerHTML = "this site";
-                            document.getElementById("minebutton").innerHTML = "<button onclick='miner.start(CoinHive.FORCE_EXCLUSIVE_TAB)'>Start Mining</button>";
+                            //document.getElementById("hps").innerHTML = "Please click start";
+                            //document.getElementById("ths").innerHTML = "to support";
+                            //document.getElementById("tah").innerHTML = "this site";
+                            //document.getElementById("minebutton").innerHTML = "<button onclick='miner.start(CoinHive.FORCE_EXCLUSIVE_TAB)'>Start Mining</button>";
                             document.getElementById("p1").setAttribute("fill", "freeze");
                             document.getElementById("p1-1").setAttribute("fill", "freeze");
                             document.getElementById("p2").setAttribute("fill", "freeze");
@@ -148,9 +168,9 @@ END OLD MINER-->
                     }, 1000);
 
                 </script>
-
-                <svg version="1.1" width="320" height="320" viewBox="0 0 320 320" fill="none" stroke="#FFE57A" stroke-linecap="round"
-                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<!-- BEGIN MINER EQ -->
+                <svg id="mineAnni" version="1.1" width="320" height="320" viewBox="0 0 320 320" fill="none" stroke="#FFE57A" stroke-linecap="round"
+                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="z-index:5; position:relative;">
                   <defs>
 
                     <path id="r1">
@@ -287,7 +307,7 @@ END OLD MINER-->
                             animation-play-state="paused"
                         />
                     </path>
-                    
+
                   </defs>
                   <use xlink:href="#r1"/>
                   <use xlink:href="#r1" transform="rotate(60 160 160)"/>
@@ -326,8 +346,161 @@ END OLD MINER-->
                   <use xlink:href="#r6" transform="rotate(270 160 160)"/>
                   <use xlink:href="#r6" transform="rotate(330 160 160)"/>
                 </svg>
+<!-- END MINER EQ -->
 
               </div>
+              <!-- BEGIN MINER PLAY/PAUSE -->
+                
+              <script type="text/javascript">
+                document.ready(function(){
+                    if(miner.isRunning()){
+                        document.getElementById("circle").setAttribute("class", "");
+                        document.getElementById("from_play_to_pause").beginElement();
+                    }
+                    else{
+                        document.getElementById("mineAnni").style.display = "none";
+                    }
+                })
+
+                function startMining(){
+                    if(miner.isRunning())
+                    {
+                        miner.stop();
+                        document.getElementById("circle").setAttribute("class", "play");
+                        document.getElementById("from_pause_to_play").beginElement();
+                        fade(document.getElementById("mineAnni"));
+                    } else {
+                        document.getElementById("circle").setAttribute("class", "");
+                        document.getElementById("from_play_to_pause").beginElement();
+                        miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
+                        unfade(document.getElementById("mineAnni"));
+                    }
+                }
+
+                function fade(element) {
+                    var op = 1;  // initial opacity
+                    var timer = setInterval(function () {
+                        if (op <= 0.1){
+                            clearInterval(timer);
+                            element.style.display = 'none';
+                        }
+                        element.style.opacity = op;
+                        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+                        op -= op * 0.1;
+                    }, 50);
+                }
+
+                function unfade(element) {
+                    var op = 0.1;  // initial opacity
+                    element.style.display = 'block';
+                    var timer = setInterval(function () {
+                        if (op >= 1){
+                            clearInterval(timer);
+                        }
+                        element.style.opacity = op;
+                        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+                        op += op * 0.1;
+                    }, 50);
+                }
+
+                /*function startMining(){
+                    if(miner.isRunning()){
+                        miner.Stop();
+                        document.getElementById("circle").setAttribute("class", "");
+                        document.getElementById("from_play_to_pause").beginElement();
+                    } else {
+                        document.getElementById("circle").setAttribute("class", "play");
+                        document.getElementById("from_pause_to_play").beginElement();
+                        miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
+                    }
+                }
+                */
+
+            /*document.ready(function(){
+                var state = "paused";
+                document.getElementById("pause").onclick(function(){
+                    if(state == "paused"){
+                        state = "playing";
+                        document.getElementById("circle").setAttribute("class", "play");
+                        document.getElementById("from_pause_to_play").beginElement();
+                    }else{
+                        state = "paused";
+                        document.getElementById("circle").setAttribute("class", "");
+                        document.getElementById("from_play_to_pause").beginElement();
+                    }
+                    
+                })
+            })
+            */
+
+            </script>
+            
+            <style>
+                svg {
+                    padding-top: 0;
+                    margin: 0px auto;
+                    display: block;
+                }
+                /* This animates the circle when it switches to play */
+                #circle {
+                    transition: stroke-dashoffset 300ms ease-in;
+                    stroke-dashoffset: 0;
+                    fill: none;
+                    z-index: 10;
+                    position: absolute; top: 0; left: 0;
+                }
+                #circle.play {
+                    stroke-dashoffset: 314;
+                }
+            </style>
+            <div id="divPlayPause"> 
+            <svg width="104" height="104" id='pause' onclick="startMining();">
+                <circle 
+                    id="circle" 
+                    cx="51" 
+                    cy="51" 
+                    r="50" 
+                    stroke-dasharray="314" 
+                    stroke-dashoffset="0" 
+                    style="stroke-width:2px;stroke:#FFC920;" 
+                />
+                <line 
+                    id='line1' 
+                    x1="38" 
+                    y1="30" 
+                    x2="38" 
+                    y2="70" 
+                    style="stroke-width:4px;stroke:#FFC920;stroke-linecap: round;" 
+                />
+                <path 
+                    id='line2' 
+                    d="M 66 30 L 66 50 L 66 70" 
+                    rx="10" ry="10" 
+                    style="stroke-width:4px;stroke:#FFC920;fill:#FFC920;stroke-linejoin: round;stroke-linecap: round;">
+                    
+                    <animate
+                        attributeName="d"
+                        dur="300ms"
+                        from="M 66 30 L 66 50 L 66 70"
+                        to="M 38 30 L 70 50 L 38 70"
+                        begin="indefinite"
+                        fill="freeze"
+                        id="from_pause_to_play"
+                    />
+                </path>
+                <animate
+                    xlink:href="#line2"
+                    attributeName="d"
+                    dur="300ms"
+                    from="M 38 30 L 70 50 L 38 70"
+                    to="M 66 30 L 66 50 L 66 70"
+                    fill="freeze"
+                    id="from_play_to_pause"
+                    begin="indefinite"
+                />
+    
+<!-- END MINER PLAY/PAUSE -->
+            </div>
 
 
 
@@ -346,5 +519,6 @@ END OLD MINER-->
             $("#fittext-poll-title").fitText();
           });
         </script>
+
     </body>
 </html>
