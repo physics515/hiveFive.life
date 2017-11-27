@@ -46,11 +46,8 @@
             }
 
             //Load Google WebFont
-            WebFont.load({
-              google: {
-                families: ['Roboto', 'Roboto Bold', 'Roboto Black']
-              }
-            });
+            WebFont.load({ google: {families: ['Roboto', 'Roboto Bold', 'Roboto Black']}
+      });
         </script>
     </head>
     <body bgcolor="#362A0B">
@@ -60,7 +57,10 @@
       <main>
           <center>
               <img class="logo-mine" id="logo-mine" src="images/hivefivelogo-02-02.svg">
-              <div id="coinhive-miner" class="coinhive-miner"
+<!-- BEGIN OLD MINER
+              <div
+                  id="coinhive-miner"
+                  class="coinhive-miner"
                   data-key="jh99H4UZ9RDIM3OF5E6wZO7fLQkNBmWK"
                   data-autostart="true"
                   data-whitelabel="true"
@@ -72,6 +72,153 @@
                   data-throttle="0.3">
                   <em>Loading...</em>
               </div>
+END OLD MINER-->
+
+<!-- BEGIN NEW MINER -->
+
+              <div id="coinhive-miner">
+                <script src="https://authedmine.com/lib/authedmine.min.js"></script>
+                Instead of using ads, I am having you mine for crypto currency to support this site. Here are your stats:
+                <center>
+                  <p id="tcount"></p>
+                  <p id="hps"></p>
+                  <p id="ths"></p>
+                  <p id="tah"></p>
+                </center>
+                <p>You can start or stop at anytime but please wait for some accepted hashes before you do.</p>
+                <center>
+                    <p id="minebutton"></p>
+                </center>
+                <p>Visit <a href="https://coin-hive.com/">Coin Hive</a> to learn more about how this works</p>
+
+                <script type="text/javascript">
+                    var miner = new CoinHive.User('jh99H4UZ9RDIM3OF5E6wZO7fLQkNBmWK', 'HiveFiveLife', {
+                      autoThreads: true,
+                      throttle: 0.3,
+                      forceASMJS: false,
+                      theme: 'light',
+                      language: 'auto'
+                        });
+                    miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
+
+                    // Update stats once per second
+                    setInterval(function() {
+                        var threadCount = miner.getNumThreads();
+                        var hashesPerSecond = Math.round(miner.getHashesPerSecond() * 100) / 100;
+                        var totalHashes = miner.getTotalHashes();
+                        var acceptedHashes = miner.getAcceptedHashes() / 256;
+                        // Output to HTML elements...
+                        if (miner.isRunning()) {
+                            document.getElementById("tcount").innerHTML = "Threads: " + threadCount;
+                            document.getElementById("hps").innerHTML = "hashes per second: " + hashesPerSecond;
+                            document.getElementById("ths").innerHTML = "Total Hashes: " + totalHashes;
+                            document.getElementById("tah").innerHTML = "Accepted Hashes: " + acceptedHashes;
+                            document.getElementById("minebutton").innerHTML = "<button onclick=\"miner.stop()\">Stop Mining</button>";
+                            if((Math.round(hashesPerSecond) * .1) > 0){
+                              document.getElementById("p2").setAttribute("begin", "p1.begin+" + Math.round(10 / (hashesPerSecond*.1)) + "s");
+                              document.getElementById("p2-1").setAttribute("begin", "p1.begin+" + Math.round(10 / (hashesPerSecond*.1)) + "s");
+                              document.getElementById("p3").setAttribute("begin", "p2.begin+" + Math.round(10 / (hashesPerSecond*.1)) + "s");
+                              document.getElementById("p3-1").setAttribute("begin", "p2.begin+" + Math.round(10 / (hashesPerSecond*.1)) + "s");
+                              document.getElementById("p4").setAttribute("begin", "p3.begin+" + Math.round(10 / (hashesPerSecond*.1)) + "s");
+                              document.getElementById("p4-1").setAttribute("begin", "p3.begin+" + Math.round(10 / (hashesPerSecond*.1)) + "s");
+                              document.getElementById("p5").setAttribute("begin", "p4.begin+" + Math.round(10 / (hashesPerSecond*.1)) + "s");
+                              document.getElementById("p5-1").setAttribute("begin", "p4.begin+" + Math.round(10 / (hashesPerSecond*.1)) + "s");
+                              document.getElementById("p6").setAttribute("begin", "p5.begin+" + Math.round(10 / (hashesPerSecond*.1)) + "s");
+                              document.getElementById("p6-1").setAttribute("begin", "p5.begin+" + Math.round(10 / (hashesPerSecond*.1)) + "s");
+                            }
+                        } else {
+                            document.getElementById("hps").innerHTML = "Please click start";
+                            document.getElementById("ths").innerHTML = "to support";
+                            document.getElementById("tah").innerHTML = "this site";
+                            document.getElementById("minebutton").innerHTML = "<button onclick='miner.start(CoinHive.FORCE_EXCLUSIVE_TAB)'>Start Mining</button>";
+                            document.getElementById("p1").setAttribute("fill", "freeze");
+                            document.getElementById("p1-1").setAttribute("fill", "freeze");
+                            document.getElementById("p2").setAttribute("fill", "freeze");
+                            document.getElementById("p2-1").setAttribute("fill", "freeze");
+                            document.getElementById("p3").setAttribute("fill", "freeze");
+                            document.getElementById("p3-1").setAttribute("fill", "freeze");
+                            document.getElementById("p4").setAttribute("fill", "freeze");
+                            document.getElementById("p4-1").setAttribute("fill", "freeze");
+                            document.getElementById("p5").setAttribute("fill", "freeze");
+                            document.getElementById("p5-1").setAttribute("fill", "freeze");
+                            document.getElementById("p6").setAttribute("fill", "freeze");
+                            document.getElementById("p6-1").setAttribute("fill", "freeze");
+
+                        }
+                    }, 1000);
+
+                </script>
+
+                <svg version="1.1" width="320" height="320" viewBox="0 0 320 320" fill="none" stroke="#FFE57A" stroke-linecap="round"
+                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <defs>
+                    <path id="r1">
+                      <animate class="mineAnnime" id="p1" attributeName="d" values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0" dur="5s" repeatCount="indefinite"/>
+                      <animate class="mineAnnime" id="p1-1" attributeName="stroke-width" values="0;4;4;4;0" dur="5s" repeatCount="indefinite" begin="p1.begin"/>
+                    </path>
+                    <path id="r2">
+                      <animate class="mineAnnime" id="p2" attributeName="d" values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0" dur="5s" repeatCount="indefinite" begin="p1.begin+1s" animation-play-state="paused"/>
+                      <animate class="mineAnnime" id="p2-1" attributeName="stroke-width" values="0;4;4;4;0" dur="5s" repeatCount="indefinite" begin="p1.begin+1s" animation-play-state="paused"/>
+                    </path>
+                    <path id="r3">
+                      <animate class="mineAnnime" id="p3" attributeName="d" values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0" dur="5s" repeatCount="indefinite" begin="p1.begin+2s" animation-play-state="paused"/>
+                      <animate class="mineAnnime" id="p3-1" attributeName="stroke-width" values="0;4;4;4;0" dur="5s" repeatCount="indefinite" begin="p1.begin+2s" animation-play-state="paused"/>
+                    </path>
+                    <path id="r4">
+                      <animate class="mineAnnime" id="p4" attributeName="d" values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0" dur="5s" repeatCount="indefinite" begin="p1.begin+3s" animation-play-state="paused"/>
+                      <animate class="mineAnnime" id="p4-1" attributeName="stroke-width" values="0;4;4;4;0" dur="5s" repeatCount="indefinite" begin="p1.begin+3s" animation-play-state="paused"/>
+                    </path>
+                    <path id="r5">
+                      <animate class="mineAnnime" id="p5" attributeName="d" values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0" dur="5s" repeatCount="indefinite" begin="p1.begin+4s" animation-play-state="paused"/>
+                      <animate class="mineAnnime" id=p5-1 attributeName="stroke-width" values="0;4;4;4;0" dur="5s" repeatCount="indefinite" begin="p1.begin+4s" animation-play-state="paused"/>
+                    </path>
+                    <path id="r6">
+                      <animate class="mineAnnime" id="p6" attributeName="d" values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0" dur="5s" repeatCount="indefinite" begin="p1.begin+5s" animation-play-state="paused"/>
+                      <animate class="mineAnnime" id="p6-1" attributeName="stroke-width" values="0;4;4;4;0" dur="5s" repeatCount="indefinite" begin="p1.begin+5s" animation-play-state="paused"/>
+                    </path>
+                  </defs>
+                  <use xlink:href="#r1"/>
+                  <use xlink:href="#r1" transform="rotate(60 160 160)"/>
+                  <use xlink:href="#r1" transform="rotate(120 160 160)"/>
+                  <use xlink:href="#r1" transform="rotate(180 160 160)"/>
+                  <use xlink:href="#r1" transform="rotate(240 160 160)"/>
+                  <use xlink:href="#r1" transform="rotate(300 160 160)"/>
+                  <use xlink:href="#r2" transform="rotate(30 160 160)"/>
+                  <use xlink:href="#r2" transform="rotate(90 160 160)"/>
+                  <use xlink:href="#r2" transform="rotate(150 160 160)"/>
+                  <use xlink:href="#r2" transform="rotate(210 160 160)"/>
+                  <use xlink:href="#r2" transform="rotate(270 160 160)"/>
+                  <use xlink:href="#r2" transform="rotate(330 160 160)"/>
+                  <use xlink:href="#r3"/>
+                  <use xlink:href="#r3" transform="rotate(60 160 160)"/>
+                  <use xlink:href="#r3" transform="rotate(120 160 160)"/>
+                  <use xlink:href="#r3" transform="rotate(180 160 160)"/>
+                  <use xlink:href="#r3" transform="rotate(240 160 160)"/>
+                  <use xlink:href="#r3" transform="rotate(300 160 160)"/>
+                  <use xlink:href="#r4" transform="rotate(30 160 160)"/>
+                  <use xlink:href="#r4" transform="rotate(90 160 160)"/>
+                  <use xlink:href="#r4" transform="rotate(150 160 160)"/>
+                  <use xlink:href="#r4" transform="rotate(210 160 160)"/>
+                  <use xlink:href="#r4" transform="rotate(270 160 160)"/>
+                  <use xlink:href="#r4" transform="rotate(330 160 160)"/>
+                  <use xlink:href="#r5"/>
+                  <use xlink:href="#r5" transform="rotate(60 160 160)"/>
+                  <use xlink:href="#r5" transform="rotate(120 160 160)"/>
+                  <use xlink:href="#r5" transform="rotate(180 160 160)"/>
+                  <use xlink:href="#r5" transform="rotate(240 160 160)"/>
+                  <use xlink:href="#r5" transform="rotate(300 160 160)"/>
+                  <use xlink:href="#r6" transform="rotate(30 160 160)"/>
+                  <use xlink:href="#r6" transform="rotate(90 160 160)"/>
+                  <use xlink:href="#r6" transform="rotate(150 160 160)"/>
+                  <use xlink:href="#r6" transform="rotate(210 160 160)"/>
+                  <use xlink:href="#r6" transform="rotate(270 160 160)"/>
+                  <use xlink:href="#r6" transform="rotate(330 160 160)"/>
+                </svg>
+
+              </div>
+
+
+
               <div id="ajax-poll" class='ajax-poll' tclass='poll-simple' style="display:none;"></div>
           </center>
         </main>
@@ -79,55 +226,10 @@
             <input class="button" id="votePage" onclick="voteClick()" type="button" value="VOTE!">
             <input class="button" id="forum" onclick="window.open('http://opticaltortuosity.com/hivefive/forum/','_blank');" type="button" value="COMMUNITY!">
         </footer>
-        <!-- <script src="https://authedmine.com/lib/authedmine.min.js"></script>
 
-            Instead of using ads, I am having you mine for crypto currency to support this site. Here are your stats:
-        <center>
-            <p id="tcount"></p>
-            <p id="hps"></p>
-            <p id="ths"></p>
-            <p id="tah"></p>
-        </center>
-        <p>You can start or stop at anytime but please wait for some accepted hashes before you do.</p>
-        <center>
-            <p id="minebutton"></p>
-        </center>
-        <p>Visit <a href="https://coin-hive.com/">Coin Hive</a> to learn more about how this works</a>
-
-        <script type="text/javascript">
-            var miner = new CoinHive.User('jh99H4UZ9RDIM3OF5E6wZO7fLQkNBmWK', 'HiveFiveLife', {
-	            autoThreads: true,
-	            throttle: 0.3,
-	            forceASMJS: false,
-	            theme: 'light',
-	            language: 'auto'
-                });
-            miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
-
-            // Update stats once per second
-            setInterval(function() {
-                var threadCount = miner.getNumThreads();
-                var hashesPerSecond = Math.round(miner.getHashesPerSecond() * 100) / 100;
-                var totalHashes = miner.getTotalHashes();
-                var acceptedHashes = miner.getAcceptedHashes() / 256;
-                // Output to HTML elements...
-                if (miner.isRunning()) {
-                    document.getElementById("tcount").innerHTML = "Threads: " + threadCount;
-                    document.getElementById("hps").innerHTML = "hashes per second: " + hashesPerSecond;
-                    document.getElementById("ths").innerHTML = "Total Hashes: " + totalHashes;
-                    document.getElementById("tah").innerHTML = "Accepted Hashes: " + acceptedHashes;
-                    document.getElementById("minebutton").innerHTML = "<button onclick=\"miner.stop()\">Stop Mining</button>";
-                } else {
-                    document.getElementById("hps").innerHTML = "Please click start";
-                    document.getElementById("ths").innerHTML = "to support";
-                    document.getElementById("tah").innerHTML = "this site";
-                    document.getElementById("minebutton").innerHTML = "<button onclick=\"miner.start(CoinHive.FORCE_EXCLUSIVE_TAB)\">Start Mining</button>";
-                }
-            }, 1000);
-        </script> -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <script src="jquery.fittext.js"></script>
-        <script type="text/javascript
+        <script type="text/javascript">
           $(window).resize(function() {
             $("#fittext-poll-title").fitText();
           });
