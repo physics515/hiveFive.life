@@ -2,7 +2,9 @@
   BEGIN MAIN PAGE
 */
 body{
-    margin:0 !important;
+	margin:0 !important;
+	background-color: #362A0B;
+	color:#362A0B;
 }
 
 header{
@@ -67,11 +69,18 @@ label {
 	margin:2px 0;
 }
 
+svg {
+	padding-top: 0;
+	margin: 0px auto;
+	display: block;
+}
+
 .logo-mine{
-    align:center;
+    align-content:center;
     opacity:.5;
     width:100%;
-    max-width:720px;
+	max-width:720px;
+
 }
 
 .logo-vote{
@@ -139,9 +148,6 @@ label {
   display:none;
 }
 
-.poll-inner {
-}
-
 .poll-form {
 	margin:0;
 }
@@ -161,16 +167,10 @@ label {
 	border-collapse:collapse;
 }
 
-.poll-table tr {
-}
-
 .poll-table td {
 	margin:0;
 	padding:3px;
 	color:#FFE57A;
-}
-
-.poll-table td.poll-caption-cont {
 }
 
 .poll-bar {
@@ -236,8 +236,8 @@ label {
 	top:0;
 	left:0;
 	margin:0;
-	padding:0
-	background-color:transparent;
+	padding:0;
+	background-color: transparent;
 }
 
 .poll-tipbox .poll-tipbox-selectone,
@@ -256,6 +256,7 @@ label {
 	border:0 solid transparent;
 	border-width:5px 0;
 
+	box-shadow: 0px 0px 0px #000;
 	-moz-box-shadow: 0px 0px 0px #000;
 	-webkit-box-shadow: 0px 0px 0px #000;
 }
@@ -322,3 +323,32 @@ label {
 .poll-input-img {
 	display:none;
 }
+
+/*
+   END POLL FRONT
+*/
+
+
+
+
+
+/*
+  BEGIN EQUALIZER
+*/
+
+
+/* This animates the circle when it switches to play */
+#circle {
+	transition: stroke-dashoffset 300ms ease-in;
+	stroke-dashoffset: 0;
+	fill: none;
+	z-index: 10;
+	position: absolute; top: 0; left: 0;
+}
+#circle.play {
+	stroke-dashoffset: 314;
+}
+
+/*
+  END EQUALIZER
+*/

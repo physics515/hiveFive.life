@@ -1,0 +1,331 @@
+<svg 
+id="mineAnni" 
+version="1.1" 
+width="320" 
+height="320" 
+viewBox="0 0 320 320" 
+fill="none" 
+stroke="#FFE57A" 
+stroke-linecap="round"
+xmlns="http://www.w3.org/2000/svg" 
+xmlns:xlink="http://www.w3.org/1999/xlink">
+        
+    <!-- BEGIN DEFINITION OF PATHS -->
+    <defs>
+
+        <!-- BEGIN FIRST "RING" OF CHEVERONS TO START ANNIMATING -->
+        <path id="r1">
+            <!-- 
+                Animate movment. Details See: (( https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d ))
+                [attributeName="d"] The "d" attribute is a string containing a series of path descriptions. 
+                    These paths are combinations of the following instructions: 
+                        moveto: "M" or "m"
+                        lineto: "L x,y" or "l dx, dy"
+                        curveto: "Q cx,cy x,y" or "q dcx,dcy, dx, dy"
+                        arcto: "A rx,ry xAxisRotate LargeArcFlag,SweepFlag x,y"
+                        closepath: "Z" or "z"
+                    These instructions are combined in a single string.
+                    Commands are case-sensitive;
+                    an upper-case command specifies its arguments as absolute positions,
+                    while a lower-case command specified points relative to the current position.
+                    It is always possible to specify a negative value as an argument to a command: 
+                    negative angles will be anti-clockwise, absolute x and y positions will be taken as negative coordinates,
+                    negative relative x values will move to the left, and negative relative y values will move upwards.
+            -->
+            <animate 
+            class="mineAnnime" 
+            id="p1" 
+            attributeName="d" 
+            values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0" 
+            dur="5s" 
+            repeatCount="indefinite"
+            />
+            
+            <!-- 
+                Animate Stroke Width. Details See: (( https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-width ))
+            -->
+            <animate 
+            class="mineAnnime" 
+            id="p1-1" 
+            attributeName="stroke-width" 
+            values="0;4;4;4;0" 
+            dur="5s" 
+            repeatCount="indefinite" 
+            begin="p1.begin"
+            />
+        </path>
+        <!-- END FIRST "RING" OF CHEVERONS TO START ANNIMATING -->
+
+        <!-- BEGIN SECOND "RING" OF CHEVERONS TO START ANNIMATING -->
+        <path id="r2">
+            <!-- 
+                Animate movment. Details See: (( https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d ))
+                [attributeName="d"] The "d" attribute is a string containing a series of path descriptions. 
+                    These paths are combinations of the following instructions: 
+                        moveto: "M" or "m"
+                        lineto: "L x,y" or "l dx, dy"
+                        curveto: "Q cx,cy x,y" or "q dcx,dcy, dx, dy"
+                        arcto: "A rx,ry xAxisRotate LargeArcFlag,SweepFlag x,y"
+                        closepath: "Z" or "z"
+                    These instructions are combined in a single string.
+                    Commands are case-sensitive;
+                    an upper-case command specifies its arguments as absolute positions,
+                    while a lower-case command specified points relative to the current position.
+                    It is always possible to specify a negative value as an argument to a command: 
+                    negative angles will be anti-clockwise, absolute x and y positions will be taken as negative coordinates,
+                    negative relative x values will move to the left, and negative relative y values will move upwards.
+            -->
+            <animate
+                class="mineAnnime"
+                id="p2"
+                attributeName="d"
+                values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0"
+                dur="5s"
+                repeatCount="indefinite" 
+                begin="p1.begin+1s" 
+                animation-play-state="paused"
+            />
+
+            <!-- 
+                Animate Stroke Width. Details See: (( https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-width ))
+            -->
+            <animate 
+                class="mineAnnime"
+                id="p2-1"
+                attributeName="stroke-width"
+                values="0;4;4;4;0"
+                dur="5s"
+                repeatCount="indefinite"
+                begin="p1.begin+1s"
+                animation-play-state="paused"
+            />
+        </path>
+        <!-- END SECOND "RING" OF CHEVERONS TO START ANNIMATING -->
+
+
+        <!-- BEGIN THIRD "RING" OF CHEVERONS TO START ANNIMATING -->
+        <path id="r3">
+            <!-- 
+                Animate movment. Details See: (( https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d ))
+                [attributeName="d"] The "d" attribute is a string containing a series of path descriptions. 
+                    These paths are combinations of the following instructions: 
+                        moveto: "M" or "m"
+                        lineto: "L x,y" or "l dx, dy"
+                        curveto: "Q cx,cy x,y" or "q dcx,dcy, dx, dy"
+                        arcto: "A rx,ry xAxisRotate LargeArcFlag,SweepFlag x,y"
+                        closepath: "Z" or "z"
+                    These instructions are combined in a single string.
+                    Commands are case-sensitive;
+                    an upper-case command specifies its arguments as absolute positions,
+                    while a lower-case command specified points relative to the current position.
+                    It is always possible to specify a negative value as an argument to a command: 
+                    negative angles will be anti-clockwise, absolute x and y positions will be taken as negative coordinates,
+                    negative relative x values will move to the left, and negative relative y values will move upwards.
+            -->
+            <animate 
+                class="mineAnnime"
+                id="p3" 
+                attributeName="d" 
+                values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0" 
+                dur="5s" 
+                repeatCount="indefinite" 
+                begin="p1.begin+2s" 
+                animation-play-state="paused"
+            />
+
+            <!-- 
+                Animate Stroke Width. Details See: (( https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-width ))
+            -->
+            <animate 
+                class="mineAnnime" 
+                id="p3-1" 
+                attributeName="stroke-width" 
+                values="0;4;4;4;0" 
+                dur="5s" 
+                repeatCount="indefinite" 
+                begin="p1.begin+2s" 
+                animation-play-state="paused"
+            />
+        </path>
+        <!-- END THIRD "RING" OF CHEVERONS TO START ANNIMATING -->
+
+        <!-- BEGIN FOURTH "RING" OF CHEVERONS TO START ANNIMATING -->
+        <path id="r4">
+            <!-- 
+                Animate movment. Details See: (( https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d ))
+                [attributeName="d"] The "d" attribute is a string containing a series of path descriptions. 
+                    These paths are combinations of the following instructions: 
+                        moveto: "M" or "m"
+                        lineto: "L x,y" or "l dx, dy"
+                        curveto: "Q cx,cy x,y" or "q dcx,dcy, dx, dy"
+                        arcto: "A rx,ry xAxisRotate LargeArcFlag,SweepFlag x,y"
+                        closepath: "Z" or "z"
+                    These instructions are combined in a single string.
+                    Commands are case-sensitive;
+                    an upper-case command specifies its arguments as absolute positions,
+                    while a lower-case command specified points relative to the current position.
+                    It is always possible to specify a negative value as an argument to a command: 
+                    negative angles will be anti-clockwise, absolute x and y positions will be taken as negative coordinates,
+                    negative relative x values will move to the left, and negative relative y values will move upwards.
+            -->
+            <animate 
+                class="mineAnnime" 
+                id="p4" 
+                attributeName="d" 
+                values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0" 
+                dur="5s" 
+                repeatCount="indefinite" 
+                begin="p1.begin+3s" 
+                animation-play-state="paused"
+            />
+
+            <!-- 
+                Animate Stroke Width. Details See: (( https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-width ))
+            -->
+            <animate 
+                class="mineAnnime" 
+                id="p4-1" 
+                attributeName="stroke-width" 
+                values="0;4;4;4;0" 
+                dur="5s" 
+                repeatCount="indefinite" 
+                begin="p1.begin+3s" 
+                animation-play-state="paused"
+            />
+        </path>
+        <!-- END FOURTH "RING" OF CHEVERONS TO START ANNIMATING -->
+
+        <!-- BEGIN FIFTH "RING" OF CHEVERONS TO START ANNIMATING -->
+        <path id="r5">
+            <!-- 
+                Animate movment. Details See: (( https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d ))
+                [attributeName="d"] The "d" attribute is a string containing a series of path descriptions. 
+                    These paths are combinations of the following instructions: 
+                        moveto: "M" or "m"
+                        lineto: "L x,y" or "l dx, dy"
+                        curveto: "Q cx,cy x,y" or "q dcx,dcy, dx, dy"
+                        arcto: "A rx,ry xAxisRotate LargeArcFlag,SweepFlag x,y"
+                        closepath: "Z" or "z"
+                    These instructions are combined in a single string.
+                    Commands are case-sensitive;
+                    an upper-case command specifies its arguments as absolute positions,
+                    while a lower-case command specified points relative to the current position.
+                    It is always possible to specify a negative value as an argument to a command: 
+                    negative angles will be anti-clockwise, absolute x and y positions will be taken as negative coordinates,
+                    negative relative x values will move to the left, and negative relative y values will move upwards.
+            -->
+            <animate 
+                class="mineAnnime" 
+                id="p5" 
+                attributeName="d" 
+                values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0" 
+                dur="5s" 
+                repeatCount="indefinite" 
+                begin="p1.begin+4s" 
+                animation-play-state="paused"
+            />
+
+            <!-- 
+                Animate Stroke Width. Details See: (( https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-width ))
+            -->
+            <animate 
+                class="mineAnnime" 
+                id="p5-1"
+                attributeName="stroke-width" 
+                values="0;4;4;4;0" 
+                dur="5s" 
+                repeatCount="indefinite" 
+                begin="p1.begin+4s" 
+                animation-play-state="paused"
+            />
+        </path>
+        <!-- END FIFTH "RING" OF CHEVERONS TO START ANNIMATING -->
+
+        <!-- BEGIN SIXTH "RING" OF CHEVERONS TO START ANNIMATING -->
+        <path id="r6">
+            <!-- 
+                Animate movment. Details See: (( https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d ))
+                [attributeName="d"] The "d" attribute is a string containing a series of path descriptions. 
+                    These paths are combinations of the following instructions: 
+                        moveto: "M" or "m"
+                        lineto: "L x,y" or "l dx, dy"
+                        curveto: "Q cx,cy x,y" or "q dcx,dcy, dx, dy"
+                        arcto: "A rx,ry xAxisRotate LargeArcFlag,SweepFlag x,y"
+                        closepath: "Z" or "z"
+                    These instructions are combined in a single string.
+                    Commands are case-sensitive;
+                    an upper-case command specifies its arguments as absolute positions,
+                    while a lower-case command specified points relative to the current position.
+                    It is always possible to specify a negative value as an argument to a command: 
+                    negative angles will be anti-clockwise, absolute x and y positions will be taken as negative coordinates,
+                    negative relative x values will move to the left, and negative relative y values will move upwards.
+            -->
+            <animate 
+                class="mineAnnime" 
+                id="p6" 
+                attributeName="d" 
+                values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0" 
+                dur="5s" 
+                repeatCount="indefinite" 
+                begin="p1.begin+5s" 
+                animation-play-state="paused"
+            />
+
+            <!-- 
+                Animate Stroke Width. Details See: (( https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-width ))
+            -->
+            <animate 
+                class="mineAnnime" 
+                id="p6-1" 
+                attributeName="stroke-width" 
+                values="0;4;4;4;0" 
+                dur="5s" 
+                repeatCount="indefinite" 
+                begin="p1.begin+5s" 
+                animation-play-state="paused"
+            />
+        </path>
+        <!-- END SIXTH "RING" OF CHEVERONS TO START ANNIMATING -->
+
+    </defs>
+    <!-- END DEFINITION OF PATHS -->
+
+    <!-- BEGIN PLACING OBJECTS IN STARTING POSITION -->
+    <use xlink:href="#r1"/>
+    <use xlink:href="#r1" transform="rotate(60 160 160)"/>
+    <use xlink:href="#r1" transform="rotate(120 160 160)"/>
+    <use xlink:href="#r1" transform="rotate(180 160 160)"/>
+    <use xlink:href="#r1" transform="rotate(240 160 160)"/>
+    <use xlink:href="#r1" transform="rotate(300 160 160)"/>
+    <use xlink:href="#r2" transform="rotate(30 160 160)"/>
+    <use xlink:href="#r2" transform="rotate(90 160 160)"/>
+    <use xlink:href="#r2" transform="rotate(150 160 160)"/>
+    <use xlink:href="#r2" transform="rotate(210 160 160)"/>
+    <use xlink:href="#r2" transform="rotate(270 160 160)"/>
+    <use xlink:href="#r2" transform="rotate(330 160 160)"/>
+    <use xlink:href="#r3"/>
+    <use xlink:href="#r3" transform="rotate(60 160 160)"/>
+    <use xlink:href="#r3" transform="rotate(120 160 160)"/>
+    <use xlink:href="#r3" transform="rotate(180 160 160)"/>
+    <use xlink:href="#r3" transform="rotate(240 160 160)"/>
+    <use xlink:href="#r3" transform="rotate(300 160 160)"/>
+    <use xlink:href="#r4" transform="rotate(30 160 160)"/>
+    <use xlink:href="#r4" transform="rotate(90 160 160)"/>
+    <use xlink:href="#r4" transform="rotate(150 160 160)"/>
+    <use xlink:href="#r4" transform="rotate(210 160 160)"/>
+    <use xlink:href="#r4" transform="rotate(270 160 160)"/>
+    <use xlink:href="#r4" transform="rotate(330 160 160)"/>
+    <use xlink:href="#r5"/>
+    <use xlink:href="#r5" transform="rotate(60 160 160)"/>
+    <use xlink:href="#r5" transform="rotate(120 160 160)"/>
+    <use xlink:href="#r5" transform="rotate(180 160 160)"/>
+    <use xlink:href="#r5" transform="rotate(240 160 160)"/>
+    <use xlink:href="#r5" transform="rotate(300 160 160)"/>
+    <use xlink:href="#r6" transform="rotate(30 160 160)"/>
+    <use xlink:href="#r6" transform="rotate(90 160 160)"/>
+    <use xlink:href="#r6" transform="rotate(150 160 160)"/>
+    <use xlink:href="#r6" transform="rotate(210 160 160)"/>
+    <use xlink:href="#r6" transform="rotate(270 160 160)"/>
+    <use xlink:href="#r6" transform="rotate(330 160 160)"/>
+    <!-- END PLACING OBJECTS IN STARTING POSITION -->
+</svg>
