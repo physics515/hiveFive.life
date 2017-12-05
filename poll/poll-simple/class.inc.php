@@ -24,7 +24,7 @@ class CTClass extends CTClassBase
 		$poll->addItem( "HOUSTON HUMANE SOCIETY" );
 
 		//-- Text used in polls
-		$poll->attr( "msg-vote", "VOTE!" );
+		$poll->attr( "msg-vote", "SUBMIT!" );
 		$poll->attr( "msg-select-one", "PLEASE SELECT AN OPTION." );
 		$poll->attr( "msg-already-voted", "YOU HAVE ALREADY VOTED! CLICK THE VOTE AGAIN BUTTON TO VOTE MORE TIMES!" );
 		$poll->attr( "msg-view-result", "VEIW RESULTS!" );

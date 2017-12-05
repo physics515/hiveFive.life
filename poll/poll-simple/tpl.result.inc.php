@@ -1,6 +1,6 @@
 <?php $poll =& $this->poll; ?>
 <?php 
-	include( "css/style.inc.php" ); 
+	//include( "css/style.inc.php" ); 
 	include($_SERVER['DOCUMENT_ROOT']."/hivefive/nosync/hush/dimwit.php");
 ?>
 

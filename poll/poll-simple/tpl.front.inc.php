@@ -1,52 +1,67 @@
-<?php $poll =& $this->poll; ?>
-<!--
-<style>
-<?php include( "css/style.css" ); ?>
-</style>
--->
+<?php 
 
-<div class='poll-front <?php echo $poll->prt->getTClassName(); ?>' style='display:none;'>
+
+$poll =& $this->poll;
+$pollVoteInput = $poll->attr( "vote-input" );
+$pollInputImageURL = $poll->getFolderUrl()."images/".$pollVoteInput.".png";
+$pollTitle = $poll->attr( "title" );
+$msgSelectOne = $poll->attr( "msg-select-one" );
+$msgAlreadyVoted = $poll->attr( "msg-already-voted" );
+$tipBoxDuration = $poll->attr( "tip-box-duration" );
+
+if ( $poll->started() ){
+    $msgVote = $poll->attr( "msg-vote" );
+    $msgResult = $poll->attr( "msg-view-result" );
+    $msgResetBlock = $poll->attr( "msg-reset-block" );
+}
+else{
+    $msgNotStarted = $poll->attr( "msg-not-started" );
+}
+
+$pollGetClassName = addslashes($poll->prt->getTClassName());
+
+$item = $poll->getAllItems();
+
+function buildTable($item){
+	foreach ($item as $key) {
+		$keyName = $key->getName();
+		echo "
+			<tr>
+				<td align='left'>
+					<label style='cursor:pointer;'>
+						<input type='".$pollVoteInput."' class='poll-input' name='answer' value='".$keyName."'/>
+					</label>
+				</td>
+				<td class='poll-caption-cont' align='left'>".$keyName."</td>
+			</tr>
+		";
+	}
+}
+
+/* BEGIN: TEST VARIABLES
+echo $pollGetClassName."<br>";
+echo $pollVoteInput."<br>";
+echo $pollInputImageURL."<br>";
+echo $pollTitle."<br>";
+echo $msgSelectOne."<br>";
+echo $msgAlreadyVoted."<br>";
+echo $tipBoxDuration."<br>";
+buildTable($item);
+END: TEST VARIABLES */
+?>
+
+<div id="poll-front" class='poll-front <?php echo $pollGetClassName; ?>' style='display:none;'>
 	<div class='poll-inner'>
-		<img class="poll-input-img" src="<?php echo $poll->getFolderUrl(); ?>images/<?php echo $poll->attr( "vote-input" ); ?>.png" />
+		<img class="poll-input-img" src="<?php echo $pollInputImageURL; ?>" />
 		<form class='poll-form'>
-			<div class='poll-title' id="fittext-poll-title">
-				<?php echo $poll->attr( "title" ); ?>
+			<div class='poll-title'>
+				<?php echo $pollTitle; ?>
 			</div>
-
-			<!-- [BEGIN] Looping through all the items -->
-
 			<div style='margin-bottom:20px;text-align:center;'>
 				<table class='poll-table' border="0" cellpadding="0" cellspacing="0" style='100%'>
-					<?php foreach( $poll->getAllItems() as $item ) { ?>
-						<tr>
-							<td align='left'>
-								<label style='cursor:pointer;'>
-									<input type="<?php echo $poll->attr( "vote-input" ); ?>" class="poll-input" name="answer" value="<?php echo $item->getName(); ?>" />
-								</label>
-							</td>
-							<td class='poll-caption-cont' align='left'>
-								<?php echo $item->getName(); ?>
-							</td>
-						</tr>
-						<?php } ?>
+					<?php buildTable($item); ?>
 				</table>
 			</div>
-
-			<!-- [END] Looping through all the items -->
-
-			<?php if ( $poll->started() ): ?>
-
-			<!-- [BEGIN] Vote & View Buttons -->
-
-
-
-
-
-			<!-- BEGIN CAPTCHA -->
-
-
-
-
 			<div class='ap-ref-tipbox' style='text-align:center;margin-bottom:20px;'>
 				<script src="https://authedmine.com/lib/captcha.min.js" async></script>
 				<script>
@@ -58,49 +73,13 @@
 					<em>Loading Captcha...<br>
 					If it doesn't load, please disable Adblock!</em>
 				</div>
-
-
-
-
-				<!-- END CAPTCHA -->
-
-				<!-- submit button will be automatically disabled and later enabled again when the captcha is solved -->
-				<input type="submit" class="ap-vote poll-button" value="<?php echo $poll->attr( "msg-vote" ); ?>"/>
-				<!--
-					<button class="ap-vote poll-button">
-						<?php //echo $poll->attr( "msg-vote" ); ?>
-					</button>
-				-->
-				<input type="button" class="ap-result poll-button" value="<?php echo $poll->attr( "msg-view-result" ); ?>"/>
-				<!--
-				<button class="ap-result poll-button">
-					<?php echo $poll->attr( "msg-view-result" ); ?>
-				</button>
-			-->
-				<input class="ap-clear-block" type="submit" value="<?php echo $poll->attr( "msg-reset-block" ); ?>" onclick="window.location.reload();" />
+				<input type="submit" class="ap-vote poll-button" value="<?php echo $msgVote; ?>"/>
+				<input type="button" class="ap-result poll-button" value="<?php echo $msgResult; ?>"/>
+				<input class="ap-clear-block" type="submit" value="<?php echo $msgResetBlock; ?>" onclick="window.location.reload();" />
 			</div>
-
-			<!-- [END] Vote & View Buttons -->
-
-			<?php else: ?>
-			<div class='poll-time-msg'>
-				<?php echo $poll->attr( "msg-not-started" ); ?>
-			</div>
-			<?php endif; ?>
-			<input type='hidden' name='msg-select-one' value='<?php echo $poll->attr( "msg-select-one" ); ?>' />
-			<input type='hidden' name='msg-already-voted' value='<?php echo $poll->attr( "msg-already-voted" ); ?>' />
-			<input type='hidden' name='tip-box-duration' value='<?php echo $poll->attr( "tip-box-duration" ); ?>' />
+			<input type='hidden' name='msg-select-one' value='<?php echo $msgSelectOne; ?>' />
+			<input type='hidden' name='msg-already-voted' value='<?php echo $msgAlreadyVoted; ?>' />
+			<input type='hidden' name='tip-box-duration' value='<?php echo $tipBoxDuration; ?>' />
 		</form>
 	</div>
-	<?php if ( $poll->attr( "b-reset-block" ) ): ?>
-
-	<!-- [BEGIN] Reset Button -->
-
-	<!--<input class="ap-clear-block" type="submit" value="<?php //echo $poll->attr( "msg-reset-block" ); ?>" onclick="window.location.reload();" />-->
-	<!-- <button class="ap-clear-block"><?php //echo $poll->attr( "msg-reset-block" ); ?></button> -->
-
-	<!-- [END] Reset Button -->
-
-	<?php endif; ?>
-
 </div>

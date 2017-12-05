@@ -8,15 +8,30 @@ body{
 }
 
 header{
-  width:100%;
-  text-align:center;
+    color:#FFE57A;
+    top:0;
+	width:100%;
+	line-height: 10pt;
+    position: absolute;
+    border-bottom-style: solid;
+    border-bottom-color: #FFC90D;
+    border-bottom-width: 1px;
+    padding-left: 0 !important;
+    margin: 0 !important;
+    text-align: center;
+	display: table;
+	font-size:9pt;
+	font-style:normal;
+	font-weight:normal;
+	vertical-align:middle;
+	font-family: "Roboto";
 }
 
 main{
     width:100%;
     max-height: calc(100% - 80px);
     position: fixed;
-    top: 50%;
+    top: calc(50% - 45px);
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -24,7 +39,8 @@ main{
 footer{
     color:#FFE57A;
     bottom:0;
-    width:100%;
+	width:100%;
+	height: 45px;
     position: absolute;
     border-top-style: solid;
     border-top-color: #FFC90D;
@@ -93,14 +109,21 @@ svg {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 0;
+  z-index: -5;
+}
+
+#EQ{
+	height:250px;
+    width:100%;
+	max-width:720px;
+	position: relative;
 }
 
 #coinhive-miner{
     height:250px;
     width:100%;
 	max-width:720px;
-	position: relative;
+	position: absolute;
 	z-index: 1;
 }
 
@@ -108,9 +131,8 @@ svg {
 	height:250px;
     width:100%;
 	max-width:720px;
-	position: relative;
+	position: absolute;
 	z-index: 2;
-	transform: translate(0, -140px);
 }
 
 .button{
@@ -152,14 +174,19 @@ svg {
 	margin:0;
 }
 
+#poll-front{
+	border: 1px;
+	border-color: #FFC90D;
+}
+
 .poll-title {
-  margin:20px;
-  padding:0;
+	margin:20px;
+	padding:0;
 	text-align:center;
 	font-size:7vmin;
 	color:#000000;
-  font-family: Roboto Black;
-  opacity: .25;
+	font-family: 'Roboto Black';
+	opacity: .25;
 }
 
 .poll-table {
@@ -341,13 +368,44 @@ svg {
 #circle {
 	transition: stroke-dashoffset 300ms ease-in;
 	stroke-dashoffset: 0;
+	stroke-width:2px;
+	stroke-dasharray:314;
 	fill: none;
 	z-index: 10;
-	position: absolute; top: 0; left: 0;
+	stroke:#ffc920;
+	stroke-dashoffset: 0;
+	/*position: absolute; top: 0; left: 0;*/
 }
 #circle.play {
 	stroke-dashoffset: 314;
 }
+
+#circle1 {
+	transition: stroke-dashoffset 300ms ease-in;
+	stroke-dashoffset: 0;
+	stroke-width:2px;
+	stroke-dasharray:942;
+	fill: none;
+	z-index: 10;
+	stroke:#ffc920;
+	stroke-dashoffset: 0;
+	/*position: absolute; top: 0; left: 0;*/
+}
+#circle1.play {
+	stroke-dashoffset: 942;
+}
+
+/* BEGIN playPause-01.svg Related Styles*/
+
+.cls-3,.cls-4{
+	stroke-linecap:round;
+	stroke-width:4px;
+	fill: #ffc920;
+	stroke:#ffc920;
+	stroke-linejoin:round;
+}
+
+/* END playPause-01.svg Related Styles*/
 
 /*
   END EQUALIZER

@@ -17,7 +17,6 @@
         <!-- BENGIN LINK STYLE SHEETS -->
 
 
-
         <!-- BEGIN POLL DEPENDENCIES -->
         <script type="text/javascript" src="/hivefive/poll/jquery.js"></script>
         <script type="text/javascript" src="/hivefive/poll/ajax-poll.php"></script>
@@ -44,11 +43,7 @@
 
         <!-- BEGIN HEADER CONTENT SPACE -->
         <header>
-
-            <!-- BEGIN ELEMENTS FOR THE POLL PAGE -->
-            <img class="logo-vote" id="logo-vote" src="images/hivefivelogo-02-02.svg" style="display:none;">
-            <!-- END ELEMENTS FOR THE POLL PAGE -->
-
+                Miner Status: &nbsp;//<small id="tcount"></small> &nbsp;//<small id="hps"/></small> &nbsp;//<small id="ths"/></small> &nbsp;//<small id="tah"></small>
         </header>
         <!-- END HEADER HEADER CONTENT SPACE -->
 
@@ -58,19 +53,22 @@
 
                         <!-- BEGIN ELEMENTS FOR MINE PAGE -->
                         <img class="logo-mine" id="logo-mine" src="images/hivefivelogo-02-02.svg">
-
                         <!-- BEGIN MONERO (COINHIVE) MINER -->
-                        <div id="coinhive-miner">
-                                <?php echo file_get_contents("images/equalizer/equalizer.svg"); ?>
-                        </div>
 
-                        <div id="divPlayPause">
-                                <?php echo file_get_contents("images/equalizer/playPause.svg"); ?>
+                        <div id="EQ">
+                                <div id="coinhive-miner">
+                                        <?php echo file_get_contents("images/equalizer/equalizer.svg"); ?>
+                                </div>
+
+                                <div id="divPlayPause">
+                                        <?php echo file_get_contents("images/equalizer/playPause-01.svg"); ?>
+                                </div>
                         </div>
                         <!-- END MONERO (COINHIVE) MINER -->
                         <!-- END ELEMENTS FOR MINE PAGE -->
 
                         <!-- BEGIN ELEMENTS FOR POLL PAGE -->
+                        <img class="logo-vote" id="logo-vote" src="images/hivefivelogo-02-02.svg" style="display:none;">
                         <div id="ajax-poll" class='ajax-poll' tclass='poll-simple' style="display:none;"></div>
                         <!-- END ELEMENTS FOR POLL PAGE -->
 

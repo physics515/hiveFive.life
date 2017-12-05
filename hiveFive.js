@@ -17,15 +17,15 @@ function voteClick() {
     }
 
 
-    // Check if the miner is NOT visible.
-    if (document.getElementById("coinhive-miner").style.display === "none") {
+    // Check if the equalizer is NOT visible.
+    if (document.getElementById("EQ").style.display === "none") {
 
-        // If the miner is NOT visible then make it visible.
-        document.getElementById("coinhive-miner").style.display = "block";
+        // If the equalizer is NOT visible then make it visible.
+        document.getElementById("EQ").style.display = "block";
     } else {
 
-        //Else make the miner invisible
-        document.getElementById("coinhive-miner").style.display = "none";
+        //Else make the equalizer invisible
+        document.getElementById("EQ").style.display = "none";
     }
 
 
@@ -119,10 +119,10 @@ setInterval(function() {
 
     // Output to HTML elements
     if (miner.isRunning()) {
-        //document.getElementById("tcount").innerHTML = "Threads: " + threadCount;
-        //document.getElementById("hps").innerHTML = "hashes per second: " + hashesPerSecond;
-        //document.getElementById("ths").innerHTML = "Total Hashes: " + totalHashes;
-        //document.getElementById("tah").innerHTML = "Accepted Hashes: " + acceptedHashes;
+        document.getElementById("tcount").innerHTML = "Threads: " + threadCount;
+        document.getElementById("hps").innerHTML = "Hashes/sec: " + hashesPerSecond;
+        document.getElementById("ths").innerHTML = "Total Hashes: " + totalHashes;
+        document.getElementById("tah").innerHTML = "Accepted Hashes: " + acceptedHashes;
         //document.getElementById("minebutton").innerHTML = "<button onclick=\"miner.stop()\">Stop Mining</button>";
     } else {
         //document.getElementById("hps").innerHTML = "Please click start";
@@ -138,18 +138,20 @@ document.addEventListener("load",
 function(){
 
     // If the miner is running
-    if(miner.isRunning()){
+    setTimeout(function(){
+        if(miner.isRunning()){
 
-        // Set the "Play/Pause" button to display "Pause"
-        document.getElementById("circle").setAttribute("class", "");
-        document.getElementById("from_play_to_pause").beginElement();
-    }
-    else{
-
-        // Else set the "Play/Pause" Button to "Play"
-        document.getElementById("mineAnni").style.display = "none";
-    }
-    break;
+            // Set the "Play/Pause" button to display "Pause"
+            document.getElementById("circle").setAttribute("class", "");
+            document.getElementById("circle1").setAttribute("class", "play");
+            document.getElementById("from_play_to_pause").beginElement();
+        }
+        else{
+    
+            // Else set the "Play/Pause" Button to "Play"
+            document.getElementById("mineAnni").style.display = "none";
+        }
+    }, 3000);
 }
 , false);
 
@@ -164,6 +166,7 @@ function startMining(){
 
         // Set the "Play/ Pause" button to "Play"
         document.getElementById("circle").setAttribute("class", "play");
+        document.getElementById("circle1").setAttribute("class", "");
         document.getElementById("from_pause_to_play").beginElement();
 
         // Fade the Equalizer out
@@ -172,6 +175,7 @@ function startMining(){
 
         // Else set the "Play/Pause" button to "Pause"
         document.getElementById("circle").setAttribute("class", "");
+        document.getElementById("circle1").setAttribute("class", "play");
         document.getElementById("from_play_to_pause").beginElement();
 
         // Start the miner
