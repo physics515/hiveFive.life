@@ -32,7 +32,7 @@ CPage.prototype = {
 		e.preventDefault();
 		if ( this.enabled ) {
 			this.enabled = false;
-			this.app.showWaitIcon( e );
+			//this.app.showWaitIcon( e );
 			this.app.send( { "cmd": "result" } );
 		}
 	},
@@ -49,7 +49,7 @@ CPage.prototype = {
 		});
 		if ( answer.length > 0 ) {//-- send a vote
 			answer = '[' + answer.join( "," ) + ']';
-			this.app.showWaitIcon( e );
+			//this.app.showWaitIcon( e );
 			this.app.send( { "cmd": "vote", "answer":answer } );
 		} else {//-- show 'select one' message
 			var jqo_ref = this.app.jobj.find('.poll-front .ap-ref-tipbox');
