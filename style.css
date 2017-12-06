@@ -4,7 +4,6 @@
 body{
 	margin:0 !important;
 	background-color: #362A0B;
-	color:#362A0B;
 }
 
 header{
@@ -14,13 +13,13 @@ header{
 	line-height: 10pt;
     position: absolute;
     border-bottom-style: solid;
-    border-bottom-color: #FFC90D;
+    border-bottom-color: #FFC920;
     border-bottom-width: 1px;
     padding-left: 0 !important;
     margin: 0 !important;
     text-align: center;
 	display: table;
-	font-size:9pt;
+	font-size:8pt;
 	font-style:normal;
 	font-weight:normal;
 	vertical-align:middle;
@@ -31,9 +30,14 @@ main{
     width:100%;
     max-height: calc(100% - 80px);
     position: fixed;
-    top: calc(50% - 45px);
+    top: calc(50% - 14px);
     left: 50%;
-    transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	overflow-y: scroll;
+}
+
+::-webkit-scrollbar{
+	display: none;
 }
 
 footer{
@@ -43,12 +47,13 @@ footer{
 	height: 45px;
     position: absolute;
     border-top-style: solid;
-    border-top-color: #FFC90D;
+    border-top-color: #FFC920;
     border-top-width: 1px;
     padding-left: 0 !important;
     margin: 0 !important;
     text-align: center;
-    display: table;
+	display: table;
+	background-color: #362A0B;
 }
 
 div{
@@ -62,15 +67,19 @@ div{
 	font-family: "Roboto";
 	box-shadow:none;
 	font-kerning: none;
-  letter-spacing: 1px;
+  	letter-spacing: 1px;
 }
 
 table, tbody, tfoot, thead, tr, th, td {
-	margin:0;
-	padding:0;
-	border:0;
-	vertical-align:middle;
-	box-shadow:none;
+	margin: 5px;
+	border: 0;
+	vertical-align: middle;
+	align-content: center;
+	text-align: center;
+	box-shadow: none;
+	border-collapse: collapse;
+	padding: 3px;
+	display: inline-table;
 }
 
 img {
@@ -113,7 +122,7 @@ svg {
 }
 
 #EQ{
-	height:250px;
+	height:320px;
     width:100%;
 	max-width:720px;
 	position: relative;
@@ -136,21 +145,103 @@ svg {
 }
 
 .button{
-  right:0px;
+	right:0px;
 	top:0px;
-	width: calc(50% - 3px);
-  max-width: 720px;
+	width: calc(50% - 6px);
+	max-width: 720px;
 	height:40px;
 	color:#FFE57A;
 	font-weight:bold;
 	font-size:10pt;
 	background-color:#362A0B;
-	border:1px solid #FFC90D;
+	border:1px solid #FFC920;
 	border-radius:0px;
-  cursor:pointer;
-  padding-left: 0 !important;
-  margin: 1.5px !important;
-  display: table-cell;
+	cursor:pointer;
+	padding-left: 0 !important;
+	margin: 1.5px !important;
+	display: table-cell;
+	transition: opacity .8s ease-in-out;
+}
+
+.button:enabled{
+	right:0px;
+	top:0px;
+	width: calc(50% - 6px);
+	max-width: 720px;
+	height:40px;
+	color:#FFE57A;
+	font-weight:bold;
+	font-size:10pt;
+	background-color:#362A0B;
+	border:1px solid #FFC920;
+	border-radius:0px;
+	cursor:pointer;
+	padding-left: 0 !important;
+	margin: 1.5px !important;
+	display: table-cell;
+	white-space: initial;
+	outline: 0;
+}
+
+  .button:active{
+	right:0px;
+	top:0px;
+	width: calc(50% - 6px);
+	max-width: 720px;
+	height:40px;
+	color:#FFE57A;
+	font-weight:bold;
+	font-size:10pt;
+	background-color:#362A0B;
+	border:1px solid #FFC920;
+	border-radius:0px;
+	cursor:pointer;
+	padding-left: 0 !important;
+	margin: 1.5px !important;
+	display: table-cell;
+	white-space: initial;
+	outline: 0;
+  }
+
+  .button:focus{
+	right:0px;
+	top:0px;
+	width: calc(50% - 6px);
+	max-width: 720px;
+	height:40px;
+	color:#FFE57A;
+	font-weight:bold;
+	font-size:10pt;
+	background-color:#362A0B;
+	border:1px solid #FFC920;
+	border-radius:0px;
+	cursor:pointer;
+	padding-left: 0 !important;
+	margin: 1.5px !important;
+	display: table-cell;
+	white-space: initial;
+	outline: 0;
+  }
+
+  .button:disabled{
+	right:0px;
+	top:0px;
+	width: calc(50% - 6px);
+	max-width: 720px;
+	height:40px;
+	color:#FFE57A;
+	font-weight:bold;
+	font-size:10pt;
+	background-color:#362A0B;
+	border:1px solid #FFC920;
+	border-radius:0px;
+	cursor:pointer;
+	padding-left: 0 !important;
+	margin: 1.5px !important;
+	display: table-cell;
+	white-space: initial;
+	outline: 0;
+	opacity: .25;
 }
 
 /*
@@ -165,39 +256,92 @@ svg {
 */
 
 .ajax-poll{
-  width:100%;
-  max-width:720px;
-  display:none;
+	border: 1px solid #FFC920;
+	padding: 10px;
+	padding-bottom: 45px;
+	background-color: #362A0B;
+	width: calc(100% - 30px);
+	max-width:720px;
+	display: none;
+	color: #FFE57A;
 }
 
-.poll-form {
-	margin:0;
-}
-
-#poll-front{
-	border: 1px;
-	border-color: #FFC90D;
+.poll-front{
+	width: 100%;
+	height: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
 }
 
 .poll-title {
-	margin:20px;
-	padding:0;
+	margin:0;
+	padding:20px;
 	text-align:center;
 	font-size:7vmin;
-	color:#000000;
+	color:#362A0B;
 	font-family: 'Roboto Black';
+	opacity: 1;
+	background-color: #FFC920;
+}
+
+.radioContainer input {
+	position: absolute;
+    opacity: 0;
+}
+
+.radioContainer{
+	display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.checkmark {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+    height: 11pt;
+    width: 11pt;
+	background-color: #000000;
 	opacity: .25;
+    border-radius: 50%;
 }
 
-.poll-table {
-	margin:0 auto;
-	border-collapse:collapse;
+.checkmark:hover{
+	background-color: #FFE57A;
+	opacity: 1;
 }
 
-.poll-table td {
-	margin:0;
-	padding:3px;
-	color:#FFE57A;
+.poll-input-cont-on ~ .checkmark {
+	background-color: #FFC920;
+	opacity: 1;
+}
+
+.checkmark:after {
+	top: 9px;
+   	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+.coinhive-captcha{
+	margin: 10px;
+}
+
+
+/*
+
+.poll-input {
+	display:none;
 }
 
 .poll-bar {
@@ -210,101 +354,12 @@ svg {
 	-khtml-border-radius: 0px;
 	border-radius: 0px;
 }
-
-.poll-button {
-  padding: 0;
-  margin:1.5px;
-	width:calc(50% - 6px);
-	height:40px;
-	color:#FFE57A;
-	font-weight:bold;
-	font-size:10pt;
-	background-color:#362A0B;
-	border:1px solid #FFC90D;
-	cursor:pointer;
-}
-
-.ap-clear-block {
-  padding: 0;
-  margin: 1.5px;
-	width:calc(100% - 4px);
-  height: 40px;
-	color:#FFE57A;
-	font-weight:bold;
-	font-size:10pt;
-	background-color:#362A0B;
-	border:1px solid #FFC90D;
-	cursor:pointer;
-}
-
-.poll-button:focus {
-	outline: 0;
-}
-
-.poll-time-msg {
-	color:#000000;
-	text-align:center;
-	font-weight:bold;
-	margin-bottom:20px;
-	padding:3px 0;
-	border:1px solid #000000;
-	-moz-border-radius: 0px;
-	-webkit-border-radius: 0px;
-	-khtml-border-radius: 0px;
-	border-radius: 0px;
-}
-
-/*-- tipbox --*/
-.poll-tipbox {
-	box-sizing:content-box;
-	z-index:10000;
-	display:none;
-	position:absolute;
-	top:0;
-	left:0;
-	margin:0;
-	padding:0;
-	background-color: transparent;
-}
-
-.poll-tipbox .poll-tipbox-selectone,
-.poll-tipbox .poll-tipbox-havevoted,
-.poll-tipbox .poll-tipbox-thankyou {
-	margin:0;
-	padding:5px 5px;
-	text-align:center;
-
-	font-size:12px;
-	font-weight:normal;
-	font-style:normal;
-
-	color:#704A00;
-	background-color:#FFC90D;
-	border:0 solid transparent;
-	border-width:5px 0;
-
-	box-shadow: 0px 0px 0px #000;
-	-moz-box-shadow: 0px 0px 0px #000;
-	-webkit-box-shadow: 0px 0px 0px #000;
-}
-
-.poll-tipbox .poll-tipbox-selectone {
-	background-color:#FFE57A;
-}
-
-.poll-tipbox .poll-tipbox-havevoted {
-	background-color:#FFC90D;
-}
-
-.poll-tipbox .poll-tipbox-thankyou {
-	background-color:#FFC90D;
-}
+*/
 
 
 /*-- checkbox --*/
-.poll-input {
-	display:none;
-}
+/*
+
 
 .poll-input-cont {
 	position:relative;
@@ -337,7 +392,7 @@ svg {
 }
 
 .poll-input-mark {
-	pointer-events:none;/* for IE11 */
+	pointer-events:none;/* for IE11 *//*
 	width:10px;
 	height:10px;
 	visibility:hidden;
@@ -350,6 +405,7 @@ svg {
 .poll-input-img {
 	display:none;
 }
+*/
 
 /*
    END POLL FRONT
@@ -372,7 +428,7 @@ svg {
 	stroke-dasharray:314;
 	fill: none;
 	z-index: 10;
-	stroke:#ffc920;
+	stroke:#FFC920;
 	stroke-dashoffset: 0;
 	/*position: absolute; top: 0; left: 0;*/
 }
@@ -387,7 +443,7 @@ svg {
 	stroke-dasharray:942;
 	fill: none;
 	z-index: 10;
-	stroke:#ffc920;
+	stroke:#FFC920;
 	stroke-dashoffset: 0;
 	/*position: absolute; top: 0; left: 0;*/
 }
@@ -400,8 +456,8 @@ svg {
 .cls-3,.cls-4{
 	stroke-linecap:round;
 	stroke-width:4px;
-	fill: #ffc920;
-	stroke:#ffc920;
+	fill: #FFC920;
+	stroke:#FFC920;
 	stroke-linejoin:round;
 }
 
