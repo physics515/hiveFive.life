@@ -22,6 +22,7 @@ $pollGetClassName = addslashes($poll->prt->getTClassName());
 
 $item = $poll->getAllItems();
 
+
 function buildTable($item, $pollVoteInput){
 	foreach ($item as $key) {
 		$keyName = $key->getName();
@@ -50,28 +51,52 @@ echo $tipBoxDuration."<br>";
 buildTable($item);
 END: TEST VARIABLES */
 ?>
+
 <script>
 	function myCaptchaCallback(token) {
 		//alert('Hashes reached. Token is: ' + token);
 	}
+
+	function clearBlock(){
+		window.alert = function() {};
+		document.getElementById("poll-cmd-output").innerHTML += "Reloading...";
+		setTimeout(
+			function(){
+				window.location.reload();
+			},
+		<?php echo $tipBoxDuration; ?>);
+	}
+
+	function clickResult(){
+		document.getElementById("poll-cmd-output").innerHTML = "Loading...";
+		setTimeout(
+			function(){
+				document.getElementById("poll-cmd-output").innerHTML = "";
+			},
+			<?php echo $tipBoxDuration; ?>);
+	}
+
+
+
 </script>
 <script src="https://authedmine.com/lib/captcha.min.js" async></script>
 
 
 <div class='poll-front <?php echo $pollGetClassName; ?>'>
-	<form>
+	<form class='poll-form'>
 		<div class='poll-title'><?php echo $pollTitle; ?></div>
 		<table>
 			<?php buildTable($item, $pollVoteInput); ?>
 		</table>
 		<div class='ap-ref-tipbox'>
 			<div class="coinhive-captcha" data-hashes="1024" data-key="jh99H4UZ9RDIM3OF5E6wZO7fLQkNBmWK" data-whitelabel="true" data-disable-elements="input[type=submit]" data-callback="myCaptchaCallback"><em>Loading Captcha...<br>If it doesn't load, please disable Adblock!</em></div>
-			<input type="submit" class="ap-vote button" value="<?php echo $msgVote; ?>"/>
-			<input type="button" class="ap-result button" value="<?php echo $msgResult; ?>"/>
-			<input class="ap-clear-block button" type="submit" value="<?php echo $msgResetBlock; ?>" onclick="window.location.reload();" />
+			<input type="submit" id="ap-vote-button" class="ap-vote button" value="<?php echo $msgVote; ?>"/>
+			<input type="button" id="ap-result" class="ap-result button" value="<?php echo $msgResult; ?>" onclick='clickResult();'/>
+			<input id="ap-clear-block-button" class="ap-clear-block button" type="submit" value="<?php echo $msgResetBlock; ?>" onclick='clearBlock();'/>
 			<input type='hidden' name='msg-select-one' value='<?php echo $msgSelectOne; ?>' />
 			<input type='hidden' name='msg-already-voted' value='<?php echo $msgAlreadyVoted; ?>' />
 			<input type='hidden' name='tip-box-duration' value='<?php echo $tipBoxDuration; ?>' />
 		</div>
+		<div class="poll-cmd" id="poll-cmd-output"></div>
 	</form>
 </div>

@@ -70,11 +70,11 @@ CPage.prototype = {
 		this.app.jobj.find( ".ap-bar" ).each( function() {
 			var wratio = $(this).attr( 'ap-wratio' );
 			var wpx = Math.floor(w100*wratio);
-			$(this).css( 'width', 0 );
+			//$(this).css( 'width', 0 );
 			$(this).show();
-			$(this).animate({
-				width: wpx
-			}, 300 );
+			//$(this).animate({
+				//width: wpx
+			//}, 300 );
 		});
 
 		//-- Back button
@@ -93,7 +93,8 @@ CPage.prototype = {
 		var txt = this.app.jobj.find( 'input[name="msg-thank-you"]').val();
 		if ( typeof(txt) != 'undefined' ) {
 			cfg["txt"] = txt;
-			this.app.showTipBox( jqo_ref, cfg );
+			//this.app.showTipBox( jqo_ref, cfg );
+			this.app.jobj.find('div[id="poll-cmd-output"]').innerHTML = cfg["txt"];
 		}
 
 		return true;

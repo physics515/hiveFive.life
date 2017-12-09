@@ -10,6 +10,13 @@ function voteClick() {
 
         // If the poll is NOT visible then make it visible.
         document.getElementById("ajax-poll").style.display = "block";
+        if(document.getElementById("ap-clear-block-button").disabled || document.getElementById("ap-vote-button").disabled){
+            document.getElementById("poll-cmd-output").innerHTML = "Please Verify Captcha.";
+		    setTimeout(
+			    function(){
+				    document.getElementById("poll-cmd-output").innerHTML = "";
+			    }, 3000);
+        }
     } else {
 
         // Else make the poll invisible

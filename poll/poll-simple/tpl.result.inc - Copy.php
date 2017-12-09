@@ -43,23 +43,32 @@
 	function buildTable($item, $sitedata, $payoutdata){
 		foreach( $item as $key ) { 
 			$percent=$key->getPercent(1);
-			$money= number_format((float)(round((($sitedata['xmrPending']+$sitedata['xmrPaid'])*$percent/100)*$payoutdata['xmrToUsd'],2)),2,'.','');
+			$money= round((($sitedata['xmrPending']+$sitedata['xmrPaid'])*$percent/100)*$payoutdata['xmrToUsd'],2);
 
-			
 			echo "
-			<span class='poll-result-row' ";
-			if($key->isVoted()){
+				<tr>
+					<td align='right' class='poll-caption-cont'>
+						<span";
+			if($key->isVoted()){ 
 				echo "style='font-weight:bold;'";
 			}
-			echo "> <span class='poll-result-cell name'>".$key->getName()."</span>
-			<span class='poll-result-cell count'>".$key->getCount()."</span>
-			<span class='poll-result-cell percent'>".$key->getPercent(1)."</span>
-			<span class='poll-result-cell money'>$".$money."USD</span>
-			<div class='ap-bar poll-bar' ap-wratio='".$key->getWRatio()."' style='width: calc(100%*".$key->getWRatio().");'></div>
-			</span>
+				
+			echo "
+				>".$key->getName()."</span>
+					</td>
+					<td></td>
+					<td align='left'>
+						<div>
+							<div class='ap-bar poll-bar' ap-wratio='".$key->getWRatio()."' style='width: calc(10%/".$key->getWRatio().");'></div>
+						</div>
+					</td>
+					<td></td>
+					<td align='right' >".$key->getPercent(1)."%&nbsp;($".$money.")</td>
+					<td></td>
+					<td align='right'>".$key->getCount()."</td>
+				</tr>
 			";
 		}
-
 	}
 
 	//BEGIN MORE DEFINITIONS
@@ -97,7 +106,9 @@
 			<div class='poll-title'>
 				<?php echo $pollTitle; ?>
 			</div>
+			<table class='poll-table results-table'>
 				<?php buildTable($item, $sitedata, $payoutdata); ?>
+			</table>
 			<div class='ap-ref-tipbox'>
 				<input type='button' class='ap-front poll-button button' value='<?php echo $msgReturn; ?>'>
 			</div>

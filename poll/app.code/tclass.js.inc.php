@@ -214,6 +214,15 @@ CApp.prototype =
 
 		var _this = this;
 
+		var jqo_cont = jqo_ref.parents("."+this.tclass);
+		var pollCMD = jqo_cont.find('#poll-cmd-output');
+
+		pollCMD.html(cfg["txt"]);
+		setTimeout(function(){
+			pollCMD.html("");
+		}, 3000);
+
+/*
 		//-- tipbox timer id
 		if ( "tipbox_timer" in this ) {
 			if ( this.tipbox_timer != -1 ) {
@@ -262,6 +271,7 @@ CApp.prototype =
 					});
 				},period);
 			});
+*/
 	},
 
 	hideTipBox: function() {
