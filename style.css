@@ -353,35 +353,67 @@ svg {
 
 /* END POLL FRONT */
 
+
+
 /* BEGIN POLL RESULTS */
 
 .ap-bar.poll-bar {
 	display:none;
 	width:0;
 	height:12px;
-	background-color:#FFE57A;
+	background-color:#FFC920;
 	-moz-border-radius: 0px;
 	-webkit-border-radius: 0px;
 	-khtml-border-radius: 0px;
 	border-radius: 0px;
 }
 
-.poll-table.results-table, .poll-table.results-table tbody, .poll-table.results-table tr,.poll-table.results-table td{
-	margin: 5px;
-	border: 0;
-	vertical-align: middle;
-	align-content: center;
+.poll-results-table{
+	text-align: left;
+	display: flow-root;
+	overflow: scroll;
+}
+
+.poll-result-row.header{
+	display: flow-root;
+	background-color: #FFC920;
+	color: #362A0B;
+}
+
+.poll-result-row{
+	display: flow-root;
+}
+
+.poll-result-cell.name{
+	display: table-cell;
+	width: 1%;
+	min-width: 217px;
+	text-align: left;
+}
+
+.poll-result-cell.count{
+	display: table-cell;
+	width: 15%;
+
 	text-align: center;
-	box-shadow: none;
-	border-collapse: collapse;
-	padding: 3px;
-	display: table;
 }
 
-.poll-table.results-table tr{
-	float: left;
+.poll-result-cell.percent{
+	display: table-cell;
+	width: 15%;
+	text-align: center;
 }
 
+.poll-result-cell.money{
+	display: table-cell;
+	width: 20%;
+	text-align: right;
+}
+
+.poll-result-row.spacer{
+	height: 10px;
+	width: 100%;
+}
 
 /* END POLL RESULTS */
 

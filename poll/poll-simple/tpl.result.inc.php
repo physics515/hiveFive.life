@@ -53,10 +53,11 @@
 			}
 			echo "> <span class='poll-result-cell name'>".$key->getName()."</span>
 			<span class='poll-result-cell count'>".$key->getCount()."</span>
-			<span class='poll-result-cell percent'>".$key->getPercent(1)."</span>
+			<span class='poll-result-cell percent'>".$key->getPercent(1)."%</span>
 			<span class='poll-result-cell money'>$".$money."USD</span>
 			<div class='ap-bar poll-bar' ap-wratio='".$key->getWRatio()."' style='width: calc(100%*".$key->getWRatio().");'></div>
 			</span>
+			<div class='poll-result-row spacer'></div>
 			";
 		}
 
@@ -97,7 +98,18 @@
 			<div class='poll-title'>
 				<?php echo $pollTitle; ?>
 			</div>
+			<br>
+			<div class="poll-results-table">
+				<span class="poll-result-row header">
+					<span class='poll-result-cell name'><b>NAME</b></span>
+					<span class='poll-result-cell count'><b>VOTES</b></span>
+					<span class='poll-result-cell percent'><b>%</b></span>
+					<span class='poll-result-cell money'><b>RAISED</b></span>
+				</span>
+				<br>
 				<?php buildTable($item, $sitedata, $payoutdata); ?>
+				<br>
+			</div>
 			<div class='ap-ref-tipbox'>
 				<input type='button' class='ap-front poll-button button' value='<?php echo $msgReturn; ?>'>
 			</div>
