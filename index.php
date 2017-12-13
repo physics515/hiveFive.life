@@ -80,7 +80,7 @@
         <footer>
 
                 <!-- BEGIN NAVIGATION MENU -->
-                <input class="button" id="votePage" onclick="voteClick()" type="button" value="VOTE!">
+                <input class="button" id="votePage" onclick="pollClick()" type="button" value="VOTE!">
                 <input class="button" id="forum" onclick="window.open('http://opticaltortuosity.com/hivefive/forum/','_blank');" type="button" value="COMMUNITY!">
                 <!-- END NAVIGATION MENU -->
 

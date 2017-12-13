@@ -1,83 +1,3 @@
-
-/*
-      BEGIN: WHEN THE "VOTE!" BUTTON IS CLICKED
-*/
-
-function voteClick() {
-
-    // Check if the poll is NOT visible.
-    if (document.getElementById("ajax-poll").style.display === "none") {
-
-        // If the poll is NOT visible then make it visible.
-        document.getElementById("ajax-poll").style.display = "block";
-        if(document.getElementById("ap-clear-block-button").disabled || document.getElementById("ap-vote-button").disabled){
-            document.getElementById("poll-cmd-output").innerHTML = "Please Verify Captcha.";
-		    setTimeout(
-			    function(){
-				    document.getElementById("poll-cmd-output").innerHTML = "";
-			    }, 3000);
-        }
-    } else {
-
-        // Else make the poll invisible
-        document.getElementById("ajax-poll").style.display = "none";
-    }
-
-
-    // Check if the equalizer is NOT visible.
-    if (document.getElementById("EQ").style.display === "none") {
-
-        // If the equalizer is NOT visible then make it visible.
-        document.getElementById("EQ").style.display = "block";
-    } else {
-
-        //Else make the equalizer invisible
-        document.getElementById("EQ").style.display = "none";
-    }
-
-
-    // Check if the if the button text is "VOTE!".
-    if (document.getElementById("votePage").value === "VOTE!") {
-
-        // If the button text is "VOTE!" then change the text to "MINE!"
-        document.getElementById("votePage").value = "MINE!";
-    } else {
-
-        // Else change the button text to "VOTE!"
-        document.getElementById("votePage").value = "VOTE!";
-    }
-
-
-    // If the logo that is displayed on the poll page is NOT visible
-    if (document.getElementById("logo-vote").style.display == "none") {
-
-        // Then make the logo visible.
-        document.getElementById("logo-vote").style.display = "block";
-    } else {
-
-        // Else make the logo invisible.
-        document.getElementById("logo-vote").style.display = "none";
-    }
-
-
-    // If the logo that is displayed on the main page is NOT visible
-    if ( document.getElementById("logo-mine").style.display == "none") {
-
-        // Then make the logo visible.
-        document.getElementById("logo-mine").style.display = "block";
-    } else {
-
-        // Else make the logo invisible.
-        document.getElementById("logo-mine").style.display = "none";
-    }
-}
-
-/*
-      END: WHEN THE "VOTE!" BUTTON IS CLICKED
-*/
-
-
-
 /*
       BEGIN: GOOGLE WEB FONTS
 */
@@ -298,3 +218,67 @@ function unfade(element) {
 /*
         END: EQUALIZER RETATED FUNCTIONS
 */
+
+/*
+        BEGIN: NAVIGATION RELATED FUNCTIONS
+*/
+currentHash = null;
+
+function navMine(){
+    document.getElementById("ajax-poll").style.display = "none";
+    document.getElementById("EQ").style.display = "block";
+    document.getElementById("votePage").value = "VOTE!";
+    document.getElementById("logo-vote").style.display = "none";
+    document.getElementById("logo-mine").style.display = "block"
+    currentHash = "#MINE";
+}
+
+function navPoll(){
+    document.getElementById("ajax-poll").style.display = "block";
+    document.getElementById("EQ").style.display = "none";
+    document.getElementById("poll-cmd-output").innerHTML = "Please Verify Captcha.";
+    document.getElementById("votePage").value = "MINE!";
+    document.getElementById("logo-vote").style.display = "block";
+    document.getElementById("logo-mine").style.display = "none";
+    currentHash = "#POLL";
+
+    setTimeout(
+        function(){
+            document.getElementById("poll-cmd-output").innerHTML = "";
+        }, 
+    3000);
+}
+
+
+var pages = [
+    "#MINE", "navMine",
+    "#POLL", "navPoll"
+];
+
+
+
+setInterval(function(){
+    var windowHash = location.hash;
+    if(windowHash != ''){
+        for(i=0; i < pages.length; i++){
+            if(windowHash == pages[i] && windowHash != currentHash){
+                i++;
+                var a = pages[i].toString();
+                window[a](windowHash);
+            }
+        }
+    }
+},500);
+
+
+function pollClick() {
+    if(document.getElementById('votePage').value == "VOTE!"){
+        location.href = "#POLL";
+        location.hash = "#POLL";
+
+    }
+    else if(document.getElementById('votePage').value == "MINE!"){
+        location.href = "#MINE";
+        location.hash = "#MINE";
+    }
+}

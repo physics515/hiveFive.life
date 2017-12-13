@@ -81,15 +81,16 @@
 
 ?>
 <script>
-	var cmdOutput = '<?php echo $msgCMDOutput; ?>';
-
+	cmdOutput = '<?php echo $msgCMDOutput; ?>';
+	newCmdOutput = '';
 	setInterval(function(){
-		if(cmdOutput != ""){
+		newCmdOutput = cmdOutput;
+	},3000)
+	setInterval(function(){
+		if(cmdOutput != "" && cmdOutput != newCmdOutput){
 			document.getElementById("results-cmd-output").innerHTML = cmdOutput;
 		}
-	}, 3000);
-
-
+	}, 500);
 </script>
 
 <div class='poll-result <?php echo $poll->prt->getTClassName(); ?>'>
