@@ -25,8 +25,12 @@ Our style consist of a five color Honeybee pallet, <img src="http://opticaltortu
  4. <img src="http://opticaltortuosity.com/hivefive/images/readMe/goldenBrown.png" width="15" height="15" /> "**Golden Brown**" #865E00 is a soft secondary accent and should be used sparingly throughout the site.
  5. <img src="http://opticaltortuosity.com/hivefive/images/readMe/grandis.png" width="15" height="15" />  "**Grandis**" #FFCF6E is a soft secondary accent and should be used sparingly throughout the site.
 
+### Fonts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://opticaltortuosity.com/hivefive/images/readMe/blackMagic.png" width="15" height="15" /><img src="http://opticaltortuosity.com/hivefive/images/readMe/sweetCorn.png" width="15" height="15" /><img src="http://opticaltortuosity.com/hivefive/images/readMe/turbo.png" width="15" height="15" /><img src="http://opticaltortuosity.com/hivefive/images/readMe/goldenBrown.png" width="15" height="15" /><img src="http://opticaltortuosity.com/hivefive/images/readMe/grandis.png" width="15" height="15" />
+**Body Text:** Googles *"Roboto"* font imported from Google Fonts.
+**Header Text:** Googles *"Roboto Black"* font imported from Google Fonts.
+
 ### Design Elements&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://opticaltortuosity.com/hivefive/images/readMe/blackMagic.png" width="15" height="15" /><img src="http://opticaltortuosity.com/hivefive/images/readMe/sweetCorn.png" width="15" height="15" /><img src="http://opticaltortuosity.com/hivefive/images/readMe/turbo.png" width="15" height="15" /><img src="http://opticaltortuosity.com/hivefive/images/readMe/goldenBrown.png" width="15" height="15" /><img src="http://opticaltortuosity.com/hivefive/images/readMe/grandis.png" width="15" height="15" />
-In this section we will go over the sections of the website as well as each sections purpose, terminology, elements. This will allow for easier and more accurate communication when discussing which changes and improvements should be applied to which area.
+In this section we will go over the sections of the website as well as each sections purpose, terminology, and elements. This will allow for easier and more accurate communication when discussing which changes and improvements should be applied to which area.
 #### Main Page
 The idea behind the Main Page is to take the Google approach, except instead of the logo and a search-bar, the first thing you see when you go to the site is our logo and a "play" button so the users can immediately dive mining, removing as much resistance to our end goal (generating money for the causes) as possible.
 ##### The Miner Status Bar
@@ -47,3 +51,6 @@ In the future I would like to add the following functionality:
 
  1. Expand the number of layers dependent on the number of threads in use.
  2. Any other ideas are welcome
+##### Footer Navigation
+![Miner Status Bar](http://opticaltortuosity.com/hivefive/images/readMe/footer.png)<br>
+This element is pretty straightforward, navigation at the bottom for easier navigation on mobile. All buttons should have a <img src="http://opticaltortuosity.com/hivefive/images/readMe/blackMagic.png" width="15" height="15" /> "**Black Magic**" #362A0B background, a 1px <img src="http://opticaltortuosity.com/hivefive/images/readMe/turbo.png" width="15" height="15" /> "**Turbo**" #FFC920 border, and the default <img src="http://opticaltortuosity.com/hivefive/images/readMe/sweetCorn.png" width="15" height="15" /> "**Sweet Corn**" #FFE57A font color.
