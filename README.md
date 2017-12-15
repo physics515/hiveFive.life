@@ -24,3 +24,26 @@ Our style consist of a five color Honeybee pallet, <img src="http://opticaltortu
  3. <img src="http://opticaltortuosity.com/hivefive/images/readMe/turbo.png" width="15" height="15" /> "**Turbo**" #FFC920 is the primary accent color and is primarily used for borders, or where emphasis should be provided.
  4. <img src="http://opticaltortuosity.com/hivefive/images/readMe/goldenBrown.png" width="15" height="15" /> "**Golden Brown**" #865E00 is a soft secondary accent and should be used sparingly throughout the site.
  5. <img src="http://opticaltortuosity.com/hivefive/images/readMe/grandis.png" width="15" height="15" />  "**Grandis**" #FFCF6E is a soft secondary accent and should be used sparingly throughout the site.
+
+### Design Elements&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://opticaltortuosity.com/hivefive/images/readMe/blackMagic.png" width="15" height="15" /><img src="http://opticaltortuosity.com/hivefive/images/readMe/sweetCorn.png" width="15" height="15" /><img src="http://opticaltortuosity.com/hivefive/images/readMe/turbo.png" width="15" height="15" /><img src="http://opticaltortuosity.com/hivefive/images/readMe/goldenBrown.png" width="15" height="15" /><img src="http://opticaltortuosity.com/hivefive/images/readMe/grandis.png" width="15" height="15" />
+In this section we will go over the sections of the website as well as each sections purpose, terminology, elements. This will allow for easier and more accurate communication when discussing which changes and improvements should be applied to which area.
+#### Main Page
+The idea behind the Main Page is to take the Google approach, except instead of the logo and a search-bar, the first thing you see when you go to the site is our logo and a "play" button so the users can immediately dive mining, removing as much resistance to our end goal (generating money for the causes) as possible.
+##### The Miner Status Bar
+![Miner Status Bar](http://opticaltortuosity.com/hivefive/images/readMe/minerStatus.png)<br>
+The miner status bar is, for now, a temporary fixture for demo purposes and to prove the miner is working for debugging purposes. The end goal of the website is to have as clean of an index page as possible, we don't want the users to have to think about their computer specs and how to improve their hash rate, we want it to be easy.
+##### Logo
+![Miner Status Bar](http://opticaltortuosity.com/hivefive/images/readMe/logo.png)<br>
+Not the best logo, I have to admit that, but something I sketched up in about 15 minutes. Oh well, It is a decent placeholder for now.
+##### Equalizer
+![Miner Status Bar](http://opticaltortuosity.com/hivefive/images/readMe/equalizer.png)<br>
+The purpose of the mining equalizer is to give the users feedback on their mining without directly showing them stats. We don't want to discourage users to not mine because the hash rate on a particular machine is better than the one they are using. Since we want everyone mining no matter what, this animation fulfills several purposes:
+
+ 1.  Provides the necessary feedback that the miner is functional.
+ 2. Speeds up and slows down relative to the total hash rate.
+ 3.  Flashes from <img src="http://opticaltortuosity.com/hivefive/images/readMe/sweetCorn.png" width="15" height="15" /> "**Sweet Corn**" #FFE57A to <img src="http://opticaltortuosity.com/hivefive/images/readMe/turbo.png" width="15" height="15" /> "**Turbo**" #FFC920 in the event that a hash was accepted.
+
+In the future I would like to add the following functionality:
+
+ 1. Expand the number of layers dependent on the number of threads in use.
+ 2. Any other ideas are welcome
