@@ -366,6 +366,7 @@ svg {
 	-webkit-border-radius: 0px;
 	-khtml-border-radius: 0px;
 	border-radius: 0px;
+	opacity: .1;
 }
 
 .poll-results-table{
@@ -376,8 +377,8 @@ svg {
 
 .poll-result-row.header{
 	display: flow-root;
-	background-color: #FFC920;
-	color: #362A0B;
+	background-color: #865E00;
+	color: #FFE57A;
 }
 
 .poll-result-row{
@@ -394,7 +395,6 @@ svg {
 .poll-result-cell.count{
 	display: table-cell;
 	width: 15%;
-
 	text-align: center;
 }
 
