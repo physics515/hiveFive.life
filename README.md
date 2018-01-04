@@ -10,6 +10,11 @@
 > receive as a result of our users mining on hiveFive.life will be donated
 > in full (100%) to the charities of choice.
 
+## Demo
+You can find the actively developed version of the demo here:<br>
+[HiveFive.Life](http://hivefive.life/)<br>
+(warning this may be broken at anytime)
+
 ## Roadmap
 #### What?
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This projects ultimate goal is to raise and donate as much money to the causes that our users select as possible.
