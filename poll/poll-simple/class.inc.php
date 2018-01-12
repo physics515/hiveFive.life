@@ -19,7 +19,7 @@ class CTClass extends CTClassBase
 		//-- Poll Options
 		$poll->addItem( "AMERICAN RED CROSS" );
 		$poll->addItem( "HOUSTON FOOD BANK" );
-		$poll->addItem( "SAMARITAN'S PURSE" );
+		$poll->addItem( "SAMARITANs PURSE" );
 		$poll->addItem( "DIRECT RELIEF" );
 		$poll->addItem( "HOUSTON HUMANE SOCIETY" );
 
