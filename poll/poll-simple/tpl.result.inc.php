@@ -1,7 +1,7 @@
 <?php 
 	//BEGIN INCLUDES
 	$poll =& $this->poll;
-	include($_SERVER['DOCUMENT_ROOT']."/hivefive/nosync/hush/dimwit.php");
+	include($_SERVER['DOCUMENT_ROOT']."/.nosync/.hush/dimwit.php");
 
 	// BEGIN DEFINITIONS
 	$pollResultsClass = $poll->prt->getTClassName();

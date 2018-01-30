@@ -1,6 +1,10 @@
 /*
   BEGIN MAIN PAGE
 */
+html{
+	overflow: -moz-scrollbars-none;
+}
+
 body{
 	margin:0 !important;
 	background-color: #362A0B;

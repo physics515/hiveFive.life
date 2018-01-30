@@ -13,13 +13,13 @@
         <!-- END BRANDING -->
 
         <!-- BENGIN LINK STYLE SHEETS -->
-        <link rel="stylesheet" type="text/css" href="/hivefive/style.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
         <!-- BENGIN LINK STYLE SHEETS -->
 
 
         <!-- BEGIN POLL DEPENDENCIES -->
-        <script type="text/javascript" src="/hivefive/poll/jquery.js"></script>
-        <script type="text/javascript" src="/hivefive/poll/ajax-poll.php"></script>
+        <script type="text/javascript" src="poll/jquery.js"></script>
+        <script type="text/javascript" src="poll/ajax-poll.php"></script>
         <!-- END POLL DEPENDENCIES -->
         
         <!-- BEGIN MINER DEPENDENCIES -->
@@ -34,7 +34,8 @@
 
 
         <!-- BEGIN SITE-WIDE DEPENDENCIES -->
-        <script type="text/javascript" src="/hivefive/hiveFive.js"></script>
+        <script type="text/javascript" src="hiveFive.js"></script>
+        <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
         <!-- END SITE-WIDE DEPENDENCIES -->
 
     </head>
@@ -81,7 +82,7 @@
 
                 <!-- BEGIN NAVIGATION MENU -->
                 <input class="button" id="votePage" onclick="pollClick()" type="button" value="VOTE!">
-                <input class="button" id="forum" onclick="window.open('http://opticaltortuosity.com/hivefive/forum/','_blank');" type="button" value="COMMUNITY!">
+                <input class="button" id="forum" onclick="window.open('http://hivefive.life/forum/','_blank');" type="button" value="COMMUNITY!">
                 <!-- END NAVIGATION MENU -->
 
         </footer>
