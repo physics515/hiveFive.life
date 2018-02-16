@@ -27,7 +27,7 @@ class CTClass extends CTClassBase
 		$poll->attr( "msg-vote", "SUBMIT!" );
 		$poll->attr( "msg-select-one", "PLEASE SELECT AN OPTION." );
 		$poll->attr( "msg-already-voted", "YOU HAVE ALREADY VOTED! CLICK THE VOTE AGAIN BUTTON TO VOTE MORE TIMES!" );
-		$poll->attr( "msg-view-result", "VEIW RESULTS!" );
+		$poll->attr( "msg-view-result", "VIEW RESULTS!" );
 		$poll->attr( "msg-thank-you", "THANK YOU FOR VOTING!" );
 		$poll->attr( "msg-return", "BACK" );
 		$poll->attr( "msg-total", "TOTAL" );

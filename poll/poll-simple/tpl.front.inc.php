@@ -90,9 +90,11 @@ END: TEST VARIABLES */
 		</table>
 		<div class='ap-ref-tipbox'>
 			<div class="coinhive-captcha" data-hashes="1024" data-key="jh99H4UZ9RDIM3OF5E6wZO7fLQkNBmWK" data-whitelabel="true" data-disable-elements="input[type=submit]" data-callback="myCaptchaCallback"><em>Loading Captcha...<br>If it doesn't load, please disable Adblock!</em></div>
-			<input type="submit" id="ap-vote-button" class="ap-vote button" value="<?php echo $msgVote; ?>"/>
-			<input type="button" id="ap-result" class="ap-result button" value="<?php echo $msgResult; ?>" onclick='clickResult();'/>
-			<input id="ap-clear-block-button" class="ap-clear-block button" type="submit" value="<?php echo $msgResetBlock; ?>" onclick='clearBlock();'/>
+			<div class="buttonPanel">
+				<input type="submit" id="ap-vote-button" class="ap-vote button" value="<?php echo $msgVote; ?>"/>
+				<input type="button" id="ap-result" class="ap-result button" value="<?php echo $msgResult; ?>" onclick='clickResult();'/>
+				<input id="ap-clear-block-button" class="ap-clear-block button" type="submit" value="<?php echo $msgResetBlock; ?>" onclick='clearBlock();'/>
+			</div>
 			<input type='hidden' name='msg-select-one' value='<?php echo $msgSelectOne; ?>' />
 			<input type='hidden' name='msg-already-voted' value='<?php echo $msgAlreadyVoted; ?>' />
 			<input type='hidden' name='tip-box-duration' value='<?php echo $tipBoxDuration; ?>' />

@@ -37,7 +37,6 @@
         <script type="text/javascript" src="hiveFive.js"></script>
         <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
         <!-- END SITE-WIDE DEPENDENCIES -->
-
     </head>
 
     <body>
@@ -53,36 +52,49 @@
                 <center>
 
                         <!-- BEGIN ELEMENTS FOR MINE PAGE -->
-                        <img class="logo-mine" id="logo-mine" src="images/hivefivelogo-02-02.svg">
+                        <img class="logo-mine" id="logo-mine" src="images/hivefivelogo-02-10-2018.svg">
                         <!-- BEGIN MONERO (COINHIVE) MINER -->
 
                         <div id="EQ">
-                                <div id="coinhive-miner">
-                                        <?php echo file_get_contents("images/equalizer/equalizer.svg"); ?>
-                                </div>
+                                <div id="EQ-container">
+                                        <div id="coinhive-miner">
+                                                <?php echo file_get_contents("images/equalizer/equalizer.svg"); ?>
+                                        </div>
 
-                                <div id="divPlayPause">
-                                        <?php echo file_get_contents("images/equalizer/playPause-01.svg"); ?>
+                                        <div id="divPlayPause">
+                                                <?php echo file_get_contents("images/equalizer/playPause-01.svg"); ?>
+                                        </div>
                                 </div>
                         </div>
                         <!-- END MONERO (COINHIVE) MINER -->
                         <!-- END ELEMENTS FOR MINE PAGE -->
 
                         <!-- BEGIN ELEMENTS FOR POLL PAGE -->
-                        <img class="logo-vote" id="logo-vote" src="images/hivefivelogo-02-02.svg" style="display:none;">
+                        <img class="logo-vote" id="logo-vote" src="images/hivefivelogo-02-10-2018.svg" style="display:none;">
                         <div id="ajax-poll" class='ajax-poll' tclass='poll-simple' style="display:none;"></div>
                         <!-- END ELEMENTS FOR POLL PAGE -->
+
+                        <div id="community-display" style="display:none;">
+                                <iframe src="https://hivefive.life/community/forum/"></iframe>
+                        </div>
+                        <div id="about" style="display:none;">
+                                <iframe src="about.php"></iframe>
+                        </div>
 
                 </center>
         </main>
         <!-- END MAIN CONTENT SPACE -->
 
         <!-- BEGIN FOOTER CONTENT SPACE -->
-        <footer>
+        <footer class="mainfoot" style="display:table !important;">
 
                 <!-- BEGIN NAVIGATION MENU -->
-                <input class="button" id="votePage" onclick="pollClick()" type="button" value="VOTE!">
-                <input class="button" id="forum" onclick="window.open('http://hivefive.life/community/forum/','_blank');" type="button" value="COMMUNITY!">
+                <div class="buttonPanel">
+                        <input class="button" id="minePage" onclick="mineClick()" type="button" value="MINE!">  
+                        <input class="button" id="votePage" onclick="pollClick()" type="button" value="VOTE!">
+                        <input class="button" id="aboutPage" onclick="aboutClick()" type="button" value="ABOUT US!">
+                        <input class="button" id="forum" onclick="forumClick()" type="button" value="COMMUNITY!">
+                </div>
                 <!-- END NAVIGATION MENU -->
 
         </footer>

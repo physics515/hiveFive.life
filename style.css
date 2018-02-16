@@ -3,18 +3,20 @@
 */
 html{
 	overflow: -moz-scrollbars-none;
+	height: 100%;
 }
 
 body{
 	margin:0 !important;
 	background-color: #362A0B;
+	height: 100%
 }
 
-header{
-    color:#FFE57A;
-    top:0;
-	width:100%;
-	line-height: 10pt;
+header {
+    color: #362A0B;
+    top: 0;
+    width: 100%;
+    line-height: 10pt;
     position: absolute;
     border-bottom-style: solid;
     border-bottom-color: #FFC920;
@@ -22,29 +24,41 @@ header{
     padding-left: 0 !important;
     margin: 0 !important;
     text-align: center;
-	display: table;
-	font-size:8pt;
-	font-style:normal;
-	font-weight:normal;
-	vertical-align:middle;
-	font-family: "Roboto";
+    display: none;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    vertical-align: middle;
+    font-family: "Roboto";
+    z-index: 9999999;
+    background-color: #FFC920;
 }
 
-main{
-    width:100%;
-    max-height: calc(100% - 80px);
+center{
+	height:100%;
+	display:block;
+}
+
+main {
+    width: 100%;
+    max-height: 100%;
     position: fixed;
-    top: calc(50% - 14px);
+    top: 50%;
     left: 50%;
-	transform: translate(-50%, -50%);
-	overflow-y: scroll;
+    transform: translate(-50%, -50%);
 }
 
 ::-webkit-scrollbar{
 	display: none;
 }
 
-footer{
+#community-display{
+	height: 100%;
+	width: 100%;
+}
+
+
+footer.mainfoot{
     color:#FFE57A;
     bottom:0;
 	width:100%;
@@ -56,8 +70,20 @@ footer{
     padding-left: 0 !important;
     margin: 0 !important;
     text-align: center;
-	display: table;
-	background-color: #362A0B;
+	display: table !important;
+	background-color: #FFC920;
+}
+
+iframe {
+    border-width: 0px;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    width: 100%;
+    display: block;
+    height: calc(100vh - 75px);
+    /* margin-bottom: -50px; */
+    transform: translate(0, -30px);
 }
 
 div{
@@ -104,12 +130,14 @@ svg {
 	display: block;
 }
 
-.logo-mine{
-    align-content:center;
-    opacity:.5;
-    width:100%;
-	max-width:720px;
-
+.logo-mine {
+    align-content: center;
+    opacity: .5;
+    width: 100%;
+    max-width: 720px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .logo-vote{
@@ -125,33 +153,36 @@ svg {
   z-index: -5;
 }
 
-#EQ{
-	height:320px;
-    width:100%;
-	max-width:720px;
-	position: relative;
+#EQ {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: 99999;
+    transform: translate(0, -50%);
+}
+
+#EQ-container {
+    padding-top: calc((100vh * .5) - 155px);
 }
 
 #coinhive-miner{
     height:250px;
     width:100%;
 	max-width:720px;
-	position: absolute;
 	z-index: 1;
 }
 
-#divPlayPause{
-	height:250px;
-    width:100%;
-	max-width:720px;
-	position: absolute;
-	z-index: 2;
+#divPlayPause {
+    height: 250px;
+    width: 100%;
+    max-width: 720px;
+    z-index: 2;
+    transform: translate(0, -250px);
 }
 
 .button{
 	right:0px;
 	top:0px;
-	width: calc(50% - 6px);
 	max-width: 720px;
 	height:40px;
 	color:#FFE57A;
@@ -167,11 +198,34 @@ svg {
 	transition: opacity .8s ease-in-out;
 }
 
+.buttonPanel{
+	width: 100%;
+	height: 100%;
+}
+
+.button:first-child:nth-last-child(1){
+	width: 100%;
+}
+
+.button:first-child:nth-last-child(2),
+.button:first-child:nth-last-child(2) ~ .button {
+    width: calc(50% - 6px);
+}
+
+.button:first-child:nth-last-child(3),
+.button:first-child:nth-last-child(3) ~ .button {
+    width: calc(33.33% - 12px);
+}
+
+.button:first-child:nth-last-child(4),
+.button:first-child:nth-last-child(4) ~ .button {
+    width: calc(25% - 24px);
+}
+
+
 .button:enabled{
 	right:0px;
 	top:0px;
-	width: calc(50% - 6px);
-	max-width: 720px;
 	height:40px;
 	color:#FFE57A;
 	font-weight:bold;
@@ -190,8 +244,6 @@ svg {
   .button:active{
 	right:0px;
 	top:0px;
-	width: calc(50% - 6px);
-	max-width: 720px;
 	height:40px;
 	color:#FFE57A;
 	font-weight:bold;
@@ -210,8 +262,6 @@ svg {
   .button:focus{
 	right:0px;
 	top:0px;
-	width: calc(50% - 6px);
-	max-width: 720px;
 	height:40px;
 	color:#FFE57A;
 	font-weight:bold;
@@ -230,8 +280,6 @@ svg {
   .button:disabled{
 	right:0px;
 	top:0px;
-	width: calc(50% - 6px);
-	max-width: 720px;
 	height:40px;
 	color:#FFE57A;
 	font-weight:bold;
@@ -283,24 +331,24 @@ svg {
 	text-align:center;
 	font-size:7vmin;
 	color:#362A0B;
-	font-family: 'Roboto Black';
+	font-family: 'Roboto';
 	opacity: 1;
 	background-color: #FFC920;
 }
 
-.poll-cmd{
-	margin:0;
-	margin-top: 10px;
-	padding:5px;
-	text-align:center;
-	font-size:8pt;
-	color:#362A0B;
-	font-family: 'Roboto Black';
-	opacity: 1;
-	background-color: #FFC920;
-	height: 8pt;
-	overflow: hidden;
-	
+.poll-cmd {
+    margin: 0;
+        margin-top: 0px;
+    margin-top: 10px;
+    padding: 5px;
+    text-align: center;
+    font-size: 8pt;
+    color: #362A0B;
+    font-family: 'Roboto';
+    opacity: 1;
+    background-color: #FFC920;
+    height: 8pt;
+    overflow: hidden;
 }
 
 .radioContainer input {
@@ -373,10 +421,11 @@ svg {
 	opacity: .1;
 }
 
-.poll-results-table{
-	text-align: left;
-	display: flow-root;
-	overflow: scroll;
+.poll-results-table {
+    text-align: left;
+    display: flow-root;
+    overflow: scroll;
+    overflow: -moz-scrollbars-none;
 }
 
 .poll-result-row.header{

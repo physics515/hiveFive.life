@@ -227,9 +227,10 @@ currentHash = null;
 function navMine(){
     document.getElementById("ajax-poll").style.display = "none";
     document.getElementById("EQ").style.display = "block";
-    document.getElementById("votePage").value = "VOTE!";
     document.getElementById("logo-vote").style.display = "none";
-    document.getElementById("logo-mine").style.display = "block"
+    document.getElementById("logo-mine").style.display = "inline";
+    document.getElementById("community-display").style.display = "none";
+    document.getElementById("about").style.display = "none";
     currentHash = "#MINE";
 }
 
@@ -237,9 +238,10 @@ function navPoll(){
     document.getElementById("ajax-poll").style.display = "block";
     document.getElementById("EQ").style.display = "none";
     document.getElementById("poll-cmd-output").innerHTML = "Please Verify Captcha.";
-    document.getElementById("votePage").value = "MINE!";
     document.getElementById("logo-vote").style.display = "block";
     document.getElementById("logo-mine").style.display = "none";
+    document.getElementById("community-display").style.display = "none";
+    document.getElementById("about").style.display = "none";
     currentHash = "#POLL";
 
     setTimeout(
@@ -249,10 +251,32 @@ function navPoll(){
     3000);
 }
 
+function navCommunity(){
+    document.getElementById("ajax-poll").style.display = "none";
+    document.getElementById("EQ").style.display = "none";
+    document.getElementById("logo-vote").style.display = "none";
+    document.getElementById("logo-mine").style.display = "none";
+    document.getElementById("community-display").style.display = "block";
+    document.getElementById("about").style.display = "none";
+    currentHash = "#COMMUNITY";
+}
+
+function navAbout(){
+    document.getElementById("ajax-poll").style.display = "none";
+    document.getElementById("EQ").style.display = "none";
+    document.getElementById("logo-vote").style.display = "none";
+    document.getElementById("logo-mine").style.display = "none";
+    document.getElementById("community-display").style.display = "none";
+    document.getElementById("about").style.display = "block";
+    currentHash = "#ABOUT";
+}
+
 
 var pages = [
     "#MINE", "navMine",
-    "#POLL", "navPoll"
+    "#POLL", "navPoll",
+    "#COMMUNITY", "navCommunity",
+    "#ABOUT", "navAbout"
 ];
 
 
@@ -268,17 +292,25 @@ setInterval(function(){
             }
         }
     }
-},500);
+},50);
 
+
+function mineClick(){
+    location.href = "#MINE";
+    location.hash = "#MINE";
+}
 
 function pollClick() {
-    if(document.getElementById('votePage').value == "VOTE!"){
-        location.href = "#POLL";
-        location.hash = "#POLL";
+    location.href = "#POLL";
+    location.hash = "#POLL";
+}
 
-    }
-    else if(document.getElementById('votePage').value == "MINE!"){
-        location.href = "#MINE";
-        location.hash = "#MINE";
-    }
+function forumClick() {
+    location.href = "#COMMUNITY";
+    location.hash = "#COMMUNITY";
+}
+
+function aboutClick(){
+    location.href = "#ABOUT";
+    location.hash = "#ABOUT";
 }
