@@ -230,7 +230,7 @@ function navMine(){
     document.getElementById("logo-vote").style.display = "none";
     document.getElementById("logo-mine").style.display = "inline";
     document.getElementById("community-display").style.display = "none";
-    document.getElementById("about").style.display = "none";
+    document.getElementById("manifest").style.display = "none";
     currentHash = "#MINE";
 }
 
@@ -241,7 +241,7 @@ function navPoll(){
     document.getElementById("logo-vote").style.display = "block";
     document.getElementById("logo-mine").style.display = "none";
     document.getElementById("community-display").style.display = "none";
-    document.getElementById("about").style.display = "none";
+    document.getElementById("manifest").style.display = "none";
     currentHash = "#POLL";
 
     setTimeout(
@@ -257,18 +257,18 @@ function navCommunity(){
     document.getElementById("logo-vote").style.display = "none";
     document.getElementById("logo-mine").style.display = "none";
     document.getElementById("community-display").style.display = "block";
-    document.getElementById("about").style.display = "none";
+    document.getElementById("manifest").style.display = "none";
     currentHash = "#COMMUNITY";
 }
 
-function navAbout(){
+function navManifest(){
     document.getElementById("ajax-poll").style.display = "none";
     document.getElementById("EQ").style.display = "none";
     document.getElementById("logo-vote").style.display = "none";
     document.getElementById("logo-mine").style.display = "none";
     document.getElementById("community-display").style.display = "none";
-    document.getElementById("about").style.display = "block";
-    currentHash = "#ABOUT";
+    document.getElementById("manifest").style.display = "block";
+    currentHash = "#MANIFEST";
 }
 
 
@@ -276,7 +276,7 @@ var pages = [
     "#MINE", "navMine",
     "#POLL", "navPoll",
     "#COMMUNITY", "navCommunity",
-    "#ABOUT", "navAbout"
+    "#MANIFEST", "navManifest"
 ];
 
 
@@ -310,7 +310,7 @@ function forumClick() {
     location.hash = "#COMMUNITY";
 }
 
-function aboutClick(){
-    location.href = "#ABOUT";
-    location.hash = "#ABOUT";
+function manifestClick(){
+    location.href = "#MANIFEST";
+    location.hash = "#MANIFEST";
 }

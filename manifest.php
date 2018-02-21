@@ -1,5 +1,5 @@
 <xmp theme="united" style="display:none;">
-        <?php echo file_get_contents("about/about.md"); ?>
+        <?php echo file_get_contents("manifest/manifest.md"); ?>
 </xmp>
         
 <!-- BEGIN LOAD STRAPDOWN SCRIPT FOR MARKDOWN SUPPORT -->

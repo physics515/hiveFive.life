@@ -77,8 +77,8 @@
                         <div id="community-display" style="display:none;">
                                 <iframe src="https://hivefive.life/community/forum/"></iframe>
                         </div>
-                        <div id="about" style="display:none;">
-                                <iframe src="about.php"></iframe>
+                        <div id="manifest" style="display:none;">
+                                <iframe src="manifest.php"></iframe>
                         </div>
 
                 </center>
@@ -92,7 +92,7 @@
                 <div class="buttonPanel">
                         <input class="button" id="minePage" onclick="mineClick()" type="button" value="MINE!">  
                         <input class="button" id="votePage" onclick="pollClick()" type="button" value="VOTE!">
-                        <input class="button" id="aboutPage" onclick="aboutClick()" type="button" value="ABOUT US!">
+                        <input class="button" id="manifestPage" onclick="manifestClick()" type="button" value="MANIFEST!">
                         <input class="button" id="forum" onclick="forumClick()" type="button" value="COMMUNITY!">
                 </div>
                 <!-- END NAVIGATION MENU -->

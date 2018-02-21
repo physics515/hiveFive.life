@@ -66,7 +66,7 @@
 	//BEGIN MORE DEFINITIONS
 	$totalMoney=round((($sitedata['xmrPending']+$sitedata['xmrPaid'])*$payoutdata['xmrToUsd']),2);
 	$totalMoneyFormat = number_format((float)$totalMoney, 2, '.', '');
-	$totalString="A total of $".$totalMoneyFormat."USD has been raised and a total of ".$poll->getTotal()." votes have been placed.";
+	$totalString="TOTAL RAISED: $".$totalMoneyFormat."(USD) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TOTAL VOTES: ".$poll->getTotal();
 	$msgThankYou = $poll->attr( "msg-thank-you" );
 	$msgReturn = $poll->attr( "msg-return" );
 
