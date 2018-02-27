@@ -75,10 +75,10 @@
                         <!-- END ELEMENTS FOR POLL PAGE -->
 
                         <div id="community-display" style="display:none;">
-                                <iframe src="https://hivefive.life/community/forum/"></iframe>
+                                <iframe src="https://hivefive.life/community/forum/" seamless="seamless" seamless></iframe>
                         </div>
                         <div id="manifest" style="display:none;">
-                                <iframe src="manifest.php"></iframe>
+                                <iframe src="manifest.php" seamless="seamless" seamless></iframe>
                         </div>
 
                 </center>

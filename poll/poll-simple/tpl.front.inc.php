@@ -93,7 +93,7 @@ END: TEST VARIABLES */
 			<div class="buttonPanel">
 				<input type="submit" id="ap-vote-button" class="ap-vote button" value="<?php echo $msgVote; ?>"/>
 				<input type="button" id="ap-result" class="ap-result button" value="<?php echo $msgResult; ?>" onclick='clickResult();'/>
-				<input id="ap-clear-block-button" class="ap-clear-block button" type="submit" value="<?php echo $msgResetBlock; ?>" onclick='clearBlock();'/>
+				<input type="submit" id="ap-clear-block-button" class="ap-clear-block button" value="<?php echo $msgResetBlock; ?>" onclick='clearBlock();'/>
 			</div>
 			<input type='hidden' name='msg-select-one' value='<?php echo $msgSelectOne; ?>' />
 			<input type='hidden' name='msg-already-voted' value='<?php echo $msgAlreadyVoted; ?>' />
