@@ -1,0 +1,30 @@
+{
+    "short_name": "h|F",
+  "name": "hiveFive|life",
+  "icons": [
+    {
+      "src": "images/logo/launcher-icon-1x.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "images/logo/launcher-icon-2x.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "images/logo/launcher-icon-4x.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+        "src": "images/logo/splash-icon-512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+  ],
+  "start_url": "index.php",
+  "theme_color": "#362A0B",
+  "background_color": "#362A0B",
+  "display": "standalone"
+}

@@ -67,19 +67,7 @@
             to="M 141 135 L 175 155 L 141 175"
         >
 		</animate>
-<!-->
-        <animate  
-            accumulate="none" 
-            additive="replace" 
-            attributeName="d" 
-            begin="indefinite" 
-            calcMode="linear" 
-            dur="300ms" fill="freeze" 
-            from="M 66 30 L 66 50 L 66 70" 
-            id="from_pause_to_play" 
-            restart="always" 
-            to="M 38 30 L 70 50 L 38 70">
--->
+        
     </path>
 
 </svg>

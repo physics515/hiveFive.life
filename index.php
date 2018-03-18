@@ -6,6 +6,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="favicon.ico">
+        <link rel="manifest" href="/manifest.json">
         <meta name="theme-color" content="#362A0B">
         <!-- END META TAGS -->
 
@@ -37,7 +38,7 @@
 
         <!-- BEGIN SITE-WIDE DEPENDENCIES -->
         <script type="text/javascript" src="hiveFive.js"></script>
-        <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
+        <!-- <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script> -->
         <!-- END SITE-WIDE DEPENDENCIES -->
     </head>
 
@@ -54,7 +55,7 @@
                 <center>
 
                         <!-- BEGIN ELEMENTS FOR MINE PAGE -->
-                        <img class="logo-mine" id="logo-mine" src="images/hivefivelogo-02-10-2018.svg">
+                        <img class="logo-mine" id="logo-mine" alt="hiveFive|life Logo" src="images/hivefivelogo-02-10-2018.svg">
                         <!-- BEGIN MONERO (COINHIVE) MINER -->
 
                         <div id="EQ">
@@ -77,10 +78,10 @@
                         <!-- END ELEMENTS FOR POLL PAGE -->
 
                         <div id="community-display" style="display:none;">
-                                <iframe src="https://hivefive.life/community/forum/" seamless="seamless" seamless></iframe>
+                                <iframe src="https://hivefive.life/community/forum/" seamless="seamless" seamless><title>Forum</title></iframe>
                         </div>
                         <div id="manifest" style="display:none;">
-                                <iframe src="manifest.php" seamless="seamless" seamless></iframe>
+                                <iframe src="manifest.php" seamless="seamless" seamless><title>Manifest</title></iframe>
                         </div>
 
                 </center>
