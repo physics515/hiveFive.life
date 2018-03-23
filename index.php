@@ -62,12 +62,17 @@
     <body>
 
         <!-- BEGIN HEADER CONTENT SPACE -->
-        <header>
-                Miner Status: &nbsp;//<small id="tcount"></small> &nbsp;//<small id="hps"/></small> &nbsp;//<small id="ths"/></small> &nbsp;//<small id="tah"></small>
+        <header id="header" style="display: none;">
+                <b>Miner Status:</b> &nbsp;&nbsp;|&nbsp;&nbsp;<small id="tcount"></small>&nbsp;&nbsp;|&nbsp;&nbsp;<small id="hps"/></small>&nbsp;&nbsp;|&nbsp;&nbsp;<small id="ths"/></small>&nbsp;&nbsp;|&nbsp;&nbsp;<small id="tah"></small>
         </header>
         <!-- END HEADER HEADER CONTENT SPACE -->
 
         <!-- BEGIN MAIN CONTENT SPACE -->
+        
+        <div id="mine-settings" onclick="mineSettingsClick()">
+                <img src="images/gear-icon.svg">
+        </div> 
+
         <main>
                 <center>
 

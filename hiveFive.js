@@ -314,3 +314,12 @@ function manifestClick(){
     location.href = "#MANIFEST";
     location.hash = "#MANIFEST";
 }
+
+function mineSettingsClick(){
+    var header= document.getElementById("header").style.display;
+    if(header == "none"){
+        document.getElementById("header").style.display = "block";
+    }else{
+        document.getElementById("header").style.display = "none";
+    }
+}

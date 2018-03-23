@@ -13,10 +13,11 @@ body{
 }
 
 header {
-    color: #362A0B;
+	color: #362A0B;
     top: 0;
-    width: 100%;
-    line-height: 10pt;
+    left: 0;
+    width: calc(100vw - 30px);
+    line-height: 30px;
     position: absolute;
     border-bottom-style: solid;
     border-bottom-color: #FFC920;
@@ -24,14 +25,26 @@ header {
     padding-left: 0 !important;
     margin: 0 !important;
     text-align: center;
-    display: none;
     font-size: 8pt;
     font-style: normal;
     font-weight: normal;
     vertical-align: middle;
     font-family: "Roboto";
-    z-index: 9999999;
+    z-index: 9999;
     background-color: #FFC920;
+    height: 29px;
+}
+
+#mine-settings{
+	display: block;
+	z-index: 999999;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	background: #FFC920;
+	top: 0 ;
+	right: 0;
+	padding: 2.5px;
 }
 
 center{
@@ -40,8 +53,8 @@ center{
 }
 
 main {
-    width: 100%;
-    max-height: 100%;
+    width: 100vw;
+    max-height: 100vh;
     position: fixed;
     top: 50%;
     left: 50%;
