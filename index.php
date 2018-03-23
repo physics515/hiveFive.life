@@ -40,6 +40,23 @@
         <script type="text/javascript" src="hiveFive.js"></script>
         <!-- <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script> -->
         <!-- END SITE-WIDE DEPENDENCIES -->
+
+        <!-- BEGIN LOAD SERVICE WORKER -->
+        <script type="text/javascript">
+                if ('serviceWorker' in navigator) {
+                        window.addEventListener('load', function() {
+                                navigator.serviceWorker.register('/serviceWorker.js').then(function(registration) {
+                                        // Registration was successful
+                                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                                }, function(err) {
+                                        // registration failed :(
+                                        console.log('ServiceWorker registration failed: ', err);
+                                });
+                        });
+                }                
+        </script>
+        <!-- END LOAD SERVICE WORKER -->
+
     </head>
 
     <body>

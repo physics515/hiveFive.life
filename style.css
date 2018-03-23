@@ -192,8 +192,11 @@ svg {
 	border:1px solid #FFC920;
 	border-radius:0px;
 	cursor:pointer;
-	padding-left: 0 !important;
-	margin: 1.5px !important;
+	padding: 0 !important;
+	margin-left: 1.5px !important;
+	margin-right: 7.5px !important;
+	margin-top: 1.5px !important;
+	margin-bottom: 1.5px !important;
 	display: table-cell;
 	transition: opacity .8s ease-in-out;
 }
