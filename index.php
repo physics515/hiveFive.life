@@ -94,17 +94,25 @@
                         <!-- END MONERO (COINHIVE) MINER -->
                         <!-- END ELEMENTS FOR MINE PAGE -->
 
+
                         <!-- BEGIN ELEMENTS FOR POLL PAGE -->
                         <img class="logo-vote" id="logo-vote" src="images/hivefivelogo-02-10-2018.svg" style="display:none;">
                         <div id="ajax-poll" class='ajax-poll' tclass='poll-simple' style="display:none;"></div>
                         <!-- END ELEMENTS FOR POLL PAGE -->
 
+
+                        <!-- BEGIN ELEMENTS FOR COMMUNITY PAGE -->
                         <div id="community-display" style="display:none;">
                                 <iframe src="https://hivefive.life/community/forum/" seamless="seamless" seamless><title>Forum</title></iframe>
                         </div>
+                        <!-- END ELEMENTS FOR COMMUNITY PAGE -->
+
+
+                        <!-- BEGIN ELEMENTS FOR MANIFEST PAGE -->
                         <div id="manifest" style="display:none;">
-                                <iframe src="manifest.php" seamless="seamless" seamless><title>Manifest</title></iframe>
+                                <iframe src="/manifest/manifest.php" seamless="seamless" seamless><title>Manifest</title></iframe>
                         </div>
+                        <!-- END ELEMENTS FOR MANIFEST PAGE -->
 
                 </center>
         </main>

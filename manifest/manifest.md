@@ -2,7 +2,7 @@
 
 # <center> <u> WELCOME </u></center>
 
-<center> We are **hiveFive|life**, the start of something new. </center>
+<center> We are hiveFive|life, the start of something new. </center>
 
 ![banner-1-03](https://hivefive.life/manifest/banner-1-03.svg)
 

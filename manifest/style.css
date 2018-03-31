@@ -12,6 +12,13 @@ section {
     display: block;
 }
 
+#manifest-content{
+    width: 80vw;
+    max-width: 1500px;
+    min-width: 300px;
+    text-align: left;
+}
+
 audio,
 canvas,
 video {
