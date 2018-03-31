@@ -17,11 +17,11 @@ class CTClass extends CTClassBase
 		$poll->attr( "title", "VOTE FOR A CAUSE!" );
 
 		//-- Poll Options
-		$poll->addItem( "AMERICAN RED CROSS" );
-		$poll->addItem( "HOUSTON FOOD BANK" );
-		$poll->addItem( "SAMARITANs PURSE" );
-		$poll->addItem( "DIRECT RELIEF" );
-		$poll->addItem( "HOUSTON HUMANE SOCIETY" );
+		$poll->addItem( "FEEDING AMERICA" );
+		$poll->addItem( "ST JUDE CHILDRENS RESEARCH" );
+		$poll->addItem( "HABITAT FOR HUMANITY" );
+		$poll->addItem( "BOYS & GIRLS CLUBS" );
+		$poll->addItem( "ALZHEIMERS ASSOCIATION" );
 
 		//-- Text used in polls
 		$poll->attr( "msg-vote", "SUBMIT!" );
