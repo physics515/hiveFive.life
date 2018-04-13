@@ -21,8 +21,8 @@
 
 
         <!-- BEGIN POLL DEPENDENCIES -->
-        <script type="text/javascript" src="poll/jquery.js"></script>
-        <script type="text/javascript" src="poll/ajax-poll.php"></script>
+        <script type="text/javascript" src="poll/jquery.js" async></script>
+        <script type="text/javascript" src="poll/ajax-poll.php" async></script>
         <!-- END POLL DEPENDENCIES -->
         
         <!-- BEGIN MINER DEPENDENCIES -->
@@ -32,13 +32,12 @@
 
 
         <!-- BEGIN GOOGLE FONT DEPENDENCIES -->
-        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" async></script>
         <!-- END GOOGLE FONT DEPENDENCIES -->
 
 
         <!-- BEGIN SITE-WIDE DEPENDENCIES -->
-        <script type="text/javascript" src="hiveFive.js"></script>
-        <!-- <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script> -->
+        <script type="text/javascript" src="hiveFive.js" async></script>
         <!-- END SITE-WIDE DEPENDENCIES -->
 
         <!-- BEGIN LOAD SERVICE WORKER -->
@@ -134,4 +133,20 @@
         <!-- END FOOTER CONTENT SPACE -->
 
     </body>
+
+        <!-- BEGIN FIREBASE SCRIPT -->
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+        <script>
+                // Initialize Firebase
+                var config = {
+                        apiKey: "AIzaSyDPRiYV-OB9N3syJccVKdTNaAnMl4qU0_I",
+                        authDomain: "hivefivelife.firebaseapp.com",
+                        databaseURL: "https://hivefivelife.firebaseio.com",
+                        projectId: "hivefivelife",
+                        storageBucket: "hivefivelife.appspot.com",
+                        messagingSenderId: "738568223165"
+                };
+                firebase.initializeApp(config);
+        </script>
+        <!-- END FIREBASE SCRIPT -->
 </html>

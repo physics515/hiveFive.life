@@ -1,5 +1,6 @@
 
-var CACHE_NAME = 'mainSite-v1var urlsToCache = [
+var CACHE_NAME = mainSite-v1var; 
+var urlsToCache = [
     '/'
 ];
 

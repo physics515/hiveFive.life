@@ -1,0 +1,30 @@
+.pollTable{
+    width: calc(100vw - 8px);
+    display: table;
+}
+
+.pollTableCaption{
+    display: table-caption;
+    text-align: center;
+}
+
+.pollTableHeaderRow{
+    display: table-row;
+    font-weight: bold;
+    text-align: center;
+}
+
+.pollTableRow{
+    display: table-row;
+    text-align: center;
+}
+
+.pollTableFooterRow{
+    display: table-row;
+    font-weight: bold;
+    text-align: center;
+}
+
+.pollTableCell{
+    display: table-cell;
+}
