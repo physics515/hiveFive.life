@@ -6,12 +6,14 @@
 .pollTableCaption{
     display: table-caption;
     text-align: center;
+    background-color: grey;
 }
 
 .pollTableHeaderRow{
     display: table-row;
     font-weight: bold;
     text-align: center;
+    background-color: grey;
 }
 
 .pollTableRow{
@@ -23,8 +25,57 @@
     display: table-row;
     font-weight: bold;
     text-align: center;
+    background-color: grey;
 }
 
 .pollTableCell{
     display: table-cell;
+    text-align: center;
+    line-height: calc(11pt + 7pt);
+    padding-top: 7pt;
+}
+
+
+
+.buttonPanel{
+	width: 100%;
+    height: 100%;
+    align-content: center;
+    text-align: center;
+}
+
+.button{
+	right:0px;
+	top:0px;
+	height:40px;
+	color:#000000;
+	font-weight:bold;
+	font-size:10pt;
+	background-color:#ffffff;
+	border:1px solid #000000;
+	border-radius:0px;
+	cursor:pointer;
+	padding: 0 !important;
+	margin: 0 !important;
+	display: table-cell;
+    transition: opacity .8s ease-in-out;
+}
+
+.button:first-child:nth-last-child(1){
+	width: 100%;
+}
+
+.button:first-child:nth-last-child(2),
+.button:first-child:nth-last-child(2) ~ .button {
+    width: calc(50% - 2px);
+}
+
+.button:first-child:nth-last-child(3),
+.button:first-child:nth-last-child(3) ~ .button {
+    width: calc(33.33% - 3px);
+}
+
+.button:first-child:nth-last-child(4),
+.button:first-child:nth-last-child(4) ~ .button {
+    width: calc(25% - 4px);
 }
