@@ -172,6 +172,7 @@ class CTClassApp extends CTClassObject {
 		if ( empty( $token ) || !function_exists( 'curl_init' ) ) {
 			return false;
 		}
+		// Reject overlong tokens and ASCII control chars before verification.
 		if ( strlen( $token ) > COINHIVE_CAPTCHA_TOKEN_MAX_LENGTH || preg_match( '/[\x00-\x1F\x7F]/', $token ) ) {
 			return false;
 		}
