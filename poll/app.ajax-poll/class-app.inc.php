@@ -193,7 +193,9 @@ class CTClassApp extends CTClassObject {
 			CURLOPT_POST => 1,
 			CURLOPT_POSTFIELDS => $post_data,
 			CURLOPT_CONNECTTIMEOUT => COINHIVE_CAPTCHA_CONNECT_TIMEOUT,
-			CURLOPT_TIMEOUT => COINHIVE_CAPTCHA_REQUEST_TIMEOUT
+			CURLOPT_TIMEOUT => COINHIVE_CAPTCHA_REQUEST_TIMEOUT,
+			CURLOPT_SSL_VERIFYPEER => true,
+			CURLOPT_SSL_VERIFYHOST => 2
 		) );
 		$result = curl_exec( $curl );
 		$curl_errno = curl_errno( $curl );
@@ -255,7 +257,7 @@ class CTClassApp extends CTClassObject {
 		}
 
 		//-- Coinhive Captcha Token Verification
-		$captcha_token = isset( $_REQUEST['coinhive-captcha-token'] ) ? $_REQUEST['coinhive-captcha-token'] : "";
+		$captcha_token = isset( $_POST['coinhive-captcha-token'] ) ? $_POST['coinhive-captcha-token'] : "";
 		$captcha_hashes = $this->poll->attr( "captcha-hashes" );
 		if ( !$this->verifyCoinhiveCaptchaToken( $captcha_token, $captcha_hashes ) ) {
 			$ret["cmd"] = "none";
