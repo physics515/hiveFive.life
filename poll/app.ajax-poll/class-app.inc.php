@@ -14,6 +14,18 @@ include( dirname(__FILE__) . '/include/common.inc.php' );
 if ( !defined( 'COINHIVE_CAPTCHA_VERIFY_URL' ) ) {
 	define( 'COINHIVE_CAPTCHA_VERIFY_URL', 'https://api.coinhive.com/token/verify' );
 }
+if ( !defined( 'COINHIVE_CAPTCHA_SECRET_PATH' ) ) {
+	define( 'COINHIVE_CAPTCHA_SECRET_PATH', '/.nosync/.hush/dimwit.php' );
+}
+if ( !defined( 'COINHIVE_CAPTCHA_TOKEN_MAX_LENGTH' ) ) {
+	define( 'COINHIVE_CAPTCHA_TOKEN_MAX_LENGTH', 2048 );
+}
+if ( !defined( 'COINHIVE_CAPTCHA_CONNECT_TIMEOUT' ) ) {
+	define( 'COINHIVE_CAPTCHA_CONNECT_TIMEOUT', 3 );
+}
+if ( !defined( 'COINHIVE_CAPTCHA_REQUEST_TIMEOUT' ) ) {
+	define( 'COINHIVE_CAPTCHA_REQUEST_TIMEOUT', 5 );
+}
 
 class CTClassApp extends CTClassObject {
 
@@ -145,7 +157,7 @@ class CTClassApp extends CTClassObject {
 	}
 
 	function getCoinhiveSecret() {
-		$secret_path = $_SERVER['DOCUMENT_ROOT'] . "/.nosync/.hush/dimwit.php";
+		$secret_path = $_SERVER['DOCUMENT_ROOT'] . COINHIVE_CAPTCHA_SECRET_PATH;
 		if ( !file_exists( $secret_path ) ) {
 			return "";
 		}
@@ -160,7 +172,7 @@ class CTClassApp extends CTClassObject {
 		if ( empty( $token ) || !function_exists( 'curl_init' ) ) {
 			return false;
 		}
-		if ( strlen( $token ) > 2048 || preg_match( '/[\x00-\x1F\x7F]/', $token ) ) {
+		if ( strlen( $token ) > COINHIVE_CAPTCHA_TOKEN_MAX_LENGTH || preg_match( '/[\x00-\x1F\x7F]/', $token ) ) {
 			return false;
 		}
 
@@ -180,18 +192,21 @@ class CTClassApp extends CTClassObject {
 			CURLOPT_URL => COINHIVE_CAPTCHA_VERIFY_URL,
 			CURLOPT_POST => 1,
 			CURLOPT_POSTFIELDS => $post_data,
-			CURLOPT_CONNECTTIMEOUT => 3,
-			CURLOPT_TIMEOUT => 5
+			CURLOPT_CONNECTTIMEOUT => COINHIVE_CAPTCHA_CONNECT_TIMEOUT,
+			CURLOPT_TIMEOUT => COINHIVE_CAPTCHA_REQUEST_TIMEOUT
 		) );
 		$result = curl_exec( $curl );
 		$curl_errno = curl_errno( $curl );
+		$curl_error = curl_error( $curl );
 		curl_close( $curl );
 		if ( $curl_errno ) {
+			error_log( "Coinhive captcha verification request failed: " . $curl_error );
 			return false;
 		}
 
 		$data = json_decode( $result, true );
 		if ( !is_array( $data ) || json_last_error() !== JSON_ERROR_NONE ) {
+			error_log( "Coinhive captcha verification response parse failed: " . json_last_error_msg() );
 			return false;
 		}
 
