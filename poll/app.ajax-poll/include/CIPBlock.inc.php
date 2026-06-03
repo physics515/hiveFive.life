@@ -30,7 +30,7 @@ class CIPBlock
 		}
 		else
 		{
-			file_put_contents( $this->path_data, "={$this->ipaddr}\r\n", FILE_APPEND | LOCK_EX );
+			file_put_contents( $this->path_data, "=" . $this->getIpHash() . "\r\n", FILE_APPEND | LOCK_EX );
 			return true;
 		}
 	}
@@ -48,7 +48,7 @@ class CIPBlock
 		else
 		{
 			$txt = file_get_contents( $this->path_data );
-			return ( strpos( $txt, "={$this->ipaddr}\r\n" ) !== false );
+			return ( strpos( $txt, "=" . $this->getIpHash() . "\r\n" ) !== false );
 		}
 	}
 
@@ -65,10 +65,15 @@ class CIPBlock
 		if ( file_exists( $this->path_data ) )
 		{
 			$txt = file_get_contents( $this->path_data, LOCK_EX );
-			$txt = str_replace( "={$this->ipaddr}\r\n", "", $txt );
+			$txt = str_replace( "=" . $this->getIpHash() . "\r\n", "", $txt );
 			file_put_contents( $this->path_data, $txt, LOCK_EX );
 		}
 		return true;
+	}
+
+	function getIpHash()
+	{
+		return hash( 'sha256', $this->ipaddr );
 	}
 }
 
