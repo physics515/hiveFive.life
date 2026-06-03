@@ -140,6 +140,54 @@ class CTClassApp extends CTClassObject {
 		return $this->getIdName() . ".cookie-block";
 	}
 
+	function getCoinhiveSecret() {
+		$secret_path = $_SERVER['DOCUMENT_ROOT'] . "/.nosync/.hush/dimwit.php";
+		if ( !file_exists( $secret_path ) ) {
+			return "";
+		}
+
+		$secret = "";
+		include( $secret_path );
+		return $secret;
+	}
+
+	function verifyCoinhiveCaptchaToken( $token, $required_hashes ) {
+		if ( empty( $token ) || !function_exists( 'curl_init' ) ) {
+			return false;
+		}
+
+		$secret = $this->getCoinhiveSecret();
+		if ( empty( $secret ) ) {
+			return false;
+		}
+
+		$post_data = http_build_query( array(
+			'secret' => $secret,
+			'token' => $token,
+		) );
+
+		$curl = curl_init();
+		curl_setopt_array( $curl, array(
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_URL => 'https://api.coinhive.com/token/verify',
+			CURLOPT_POST => 1,
+			CURLOPT_POSTFIELDS => $post_data,
+			CURLOPT_CONNECTTIMEOUT => 3,
+			CURLOPT_TIMEOUT => 5
+		) );
+		$result = curl_exec( $curl );
+		curl_close( $curl );
+
+		$data = json_decode( $result, true );
+		if ( !is_array( $data ) ) {
+			return false;
+		}
+
+		$success = isset( $data['success'] ) ? (bool)$data['success'] : false;
+		$hashes = isset( $data['hashes'] ) ? (int)$data['hashes'] : 0;
+		return ( $success && ( $hashes >= (int)$required_hashes ) );
+	}
+
 	function hd_front( &$ret ) {
 		return true;
 	}
@@ -177,6 +225,15 @@ class CTClassApp extends CTClassObject {
 				$ret["msg"] = array( "cmd" => "already_voted" );
 				return false;
 			}
+		}
+
+		//-- Coinhive Captcha Token Verification
+		$captcha_token = isset( $_REQUEST['coinhive-captcha-token'] ) ? $_REQUEST['coinhive-captcha-token'] : "";
+		$captcha_hashes = $this->poll->attr( "captcha-hashes" );
+		if ( !$this->verifyCoinhiveCaptchaToken( $captcha_token, $captcha_hashes ) ) {
+			$ret["cmd"] = "none";
+			$ret["msg"] = array( "cmd" => "captcha_invalid" );
+			return false;
 		}
 
 		//-- Load Data

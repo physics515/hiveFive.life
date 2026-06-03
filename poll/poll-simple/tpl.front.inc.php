@@ -7,7 +7,9 @@ $pollInputImageURL = $poll->getFolderUrl()."images/".$pollVoteInput.".png";
 $pollTitle = $poll->attr( "title" );
 $msgSelectOne = $poll->attr( "msg-select-one" );
 $msgAlreadyVoted = $poll->attr( "msg-already-voted" );
+$msgCaptchaInvalid = $poll->attr( "msg-captcha-invalid" );
 $tipBoxDuration = $poll->attr( "tip-box-duration" );
+$captchaHashes = $poll->attr( "captcha-hashes" );
 
 if ( $poll->started() ){
     $msgVote = $poll->attr( "msg-vote" );
@@ -89,7 +91,7 @@ END: TEST VARIABLES */
 			<?php buildTable($item, $pollVoteInput); ?>
 		</table>
 		<div class='ap-ref-tipbox'>
-			<div class="coinhive-captcha" data-hashes="1024" data-key="jh99H4UZ9RDIM3OF5E6wZO7fLQkNBmWK" data-whitelabel="true" data-disable-elements="input[type=submit]" data-callback="myCaptchaCallback"><em>Loading Captcha...<br>If it doesn't load, please disable Adblock!</em></div>
+			<div class="coinhive-captcha" data-hashes="<?php echo (int)$captchaHashes; ?>" data-key="jh99H4UZ9RDIM3OF5E6wZO7fLQkNBmWK" data-whitelabel="true" data-disable-elements="input[type=submit]" data-callback="myCaptchaCallback"><em>Loading Captcha...<br>If it doesn't load, please disable Adblock!</em></div>
 			<div class="buttonPanel">
 				<input type="submit" id="ap-vote-button" class="ap-vote button" value="<?php echo $msgVote; ?>"/>
 				<input type="button" id="ap-result" class="ap-result button" value="<?php echo $msgResult; ?>" onclick='clickResult();'/>
@@ -97,6 +99,7 @@ END: TEST VARIABLES */
 			</div>
 			<input type='hidden' name='msg-select-one' value='<?php echo $msgSelectOne; ?>' />
 			<input type='hidden' name='msg-already-voted' value='<?php echo $msgAlreadyVoted; ?>' />
+			<input type='hidden' name='msg-captcha-invalid' value='<?php echo $msgCaptchaInvalid; ?>' />
 			<input type='hidden' name='tip-box-duration' value='<?php echo $tipBoxDuration; ?>' />
 		</div>
 		<div class="poll-cmd" id="poll-cmd-output"></div>

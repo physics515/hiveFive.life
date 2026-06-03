@@ -27,6 +27,7 @@ class CTClass extends CTClassBase
 		$poll->attr( "msg-vote", "SUBMIT!" );
 		$poll->attr( "msg-select-one", "PLEASE SELECT AN OPTION." );
 		$poll->attr( "msg-already-voted", "YOU HAVE ALREADY VOTED! CLICK THE VOTE AGAIN BUTTON TO VOTE MORE TIMES!" );
+		$poll->attr( "msg-captcha-invalid", "CAPTCHA VERIFICATION FAILED. PLEASE COMPLETE THE CAPTCHA AGAIN." );
 		$poll->attr( "msg-view-result", "VIEW RESULTS!" );
 		$poll->attr( "msg-thank-you", "THANK YOU FOR VOTING!" );
 		$poll->attr( "msg-return", "BACK" );
@@ -60,6 +61,9 @@ class CTClass extends CTClassBase
 		//--	(e.g.)　60*60*24 => One Day
 		//--	(e.g.)　60*60*24*365 => One Year
 		$poll->attr( "cookie-block-period", 60*60*24*30*5 );
+
+		//-- Required hashes for Coinhive captcha verification
+		$poll->attr( "captcha-hashes", 1024 );
 
 		//-- Specifiy Start and End Date&Time:
 		//-- Enter an empty string ("") if you don't need to specify it.
