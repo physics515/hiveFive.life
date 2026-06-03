@@ -11,6 +11,10 @@
 
 include( dirname(__FILE__) . '/include/common.inc.php' );
 
+if ( !defined( 'COINHIVE_CAPTCHA_VERIFY_URL' ) ) {
+	define( 'COINHIVE_CAPTCHA_VERIFY_URL', 'https://api.coinhive.com/token/verify' );
+}
+
 class CTClassApp extends CTClassObject {
 
 	function setup( $sys ) {
@@ -152,7 +156,11 @@ class CTClassApp extends CTClassObject {
 	}
 
 	function verifyCoinhiveCaptchaToken( $token, $required_hashes ) {
+		$token = trim( (string)$token );
 		if ( empty( $token ) || !function_exists( 'curl_init' ) ) {
+			return false;
+		}
+		if ( strlen( $token ) > 2048 || preg_match( '/[\x00-\x1F\x7F]/', $token ) ) {
 			return false;
 		}
 
@@ -169,17 +177,21 @@ class CTClassApp extends CTClassObject {
 		$curl = curl_init();
 		curl_setopt_array( $curl, array(
 			CURLOPT_RETURNTRANSFER => 1,
-			CURLOPT_URL => 'https://api.coinhive.com/token/verify',
+			CURLOPT_URL => COINHIVE_CAPTCHA_VERIFY_URL,
 			CURLOPT_POST => 1,
 			CURLOPT_POSTFIELDS => $post_data,
 			CURLOPT_CONNECTTIMEOUT => 3,
 			CURLOPT_TIMEOUT => 5
 		) );
 		$result = curl_exec( $curl );
+		$curl_errno = curl_errno( $curl );
 		curl_close( $curl );
+		if ( $curl_errno ) {
+			return false;
+		}
 
 		$data = json_decode( $result, true );
-		if ( !is_array( $data ) ) {
+		if ( !is_array( $data ) || json_last_error() !== JSON_ERROR_NONE ) {
 			return false;
 		}
 
