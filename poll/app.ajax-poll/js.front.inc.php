@@ -49,8 +49,9 @@ CPage.prototype = {
 		});
 		if ( answer.length > 0 ) {//-- send a vote
 			answer = '[' + answer.join( "," ) + ']';
+			var captchaToken = this.app.jobj.find('input[name="coinhive-captcha-token"]').val();
 			//this.app.showWaitIcon( e );
-			this.app.send( { "cmd": "vote", "answer":answer } );
+			this.app.send( { "cmd": "vote", "answer":answer, "coinhive-captcha-token":captchaToken } );
 		} else {//-- show 'select one' message
 			var jqo_ref = this.app.jobj.find('.poll-front .ap-ref-tipbox');
 			var cfg = { "class":"selectone", "period":this.tip_box_duration };
@@ -172,6 +173,16 @@ CPage.prototype = {
 			var jqo_ref = this.app.jobj.find('.poll-front .ap-ref-tipbox');
 			var cfg = { "class":"havevoted", "period":this.tip_box_duration };
 			var txt = this.app.jobj.find( 'input[name="msg-already-voted"]').val();
+			if ( typeof(txt) != 'undefined' ) {
+				cfg["txt"] = txt;
+				this.app.showTipBox( jqo_ref, cfg );
+			}
+
+			return true;
+		case "captcha_invalid":
+			var jqo_ref = this.app.jobj.find('.poll-front .ap-ref-tipbox');
+			var cfg = { "class":"selectone", "period":this.tip_box_duration };
+			var txt = this.app.jobj.find( 'input[name="msg-captcha-invalid"]').val();
 			if ( typeof(txt) != 'undefined' ) {
 				cfg["txt"] = txt;
 				this.app.showTipBox( jqo_ref, cfg );

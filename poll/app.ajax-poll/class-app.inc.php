@@ -11,6 +11,22 @@
 
 include( dirname(__FILE__) . '/include/common.inc.php' );
 
+if ( !defined( 'COINHIVE_CAPTCHA_VERIFY_URL' ) ) {
+	define( 'COINHIVE_CAPTCHA_VERIFY_URL', 'https://api.coinhive.com/token/verify' );
+}
+if ( !defined( 'COINHIVE_CAPTCHA_SECRET_PATH' ) ) {
+	define( 'COINHIVE_CAPTCHA_SECRET_PATH', '/.nosync/.hush/dimwit.php' );
+}
+if ( !defined( 'COINHIVE_CAPTCHA_TOKEN_MAX_LENGTH' ) ) {
+	define( 'COINHIVE_CAPTCHA_TOKEN_MAX_LENGTH', 2048 );
+}
+if ( !defined( 'COINHIVE_CAPTCHA_CONNECT_TIMEOUT' ) ) {
+	define( 'COINHIVE_CAPTCHA_CONNECT_TIMEOUT', 3 );
+}
+if ( !defined( 'COINHIVE_CAPTCHA_REQUEST_TIMEOUT' ) ) {
+	define( 'COINHIVE_CAPTCHA_REQUEST_TIMEOUT', 5 );
+}
+
 class CTClassApp extends CTClassObject {
 
 	function setup( $sys ) {
@@ -140,6 +156,68 @@ class CTClassApp extends CTClassObject {
 		return $this->getIdName() . ".cookie-block";
 	}
 
+	function getCoinhiveSecret() {
+		$secret_path = $_SERVER['DOCUMENT_ROOT'] . COINHIVE_CAPTCHA_SECRET_PATH;
+		if ( !file_exists( $secret_path ) ) {
+			return "";
+		}
+
+		$secret = "";
+		include( $secret_path );
+		return $secret;
+	}
+
+	function verifyCoinhiveCaptchaToken( $token, $required_hashes ) {
+		$token = trim( (string)$token );
+		if ( empty( $token ) || !function_exists( 'curl_init' ) ) {
+			return false;
+		}
+		// Reject overlong tokens and ASCII control chars before verification.
+		if ( strlen( $token ) > COINHIVE_CAPTCHA_TOKEN_MAX_LENGTH || preg_match( '/[\x00-\x1F\x7F]/', $token ) ) {
+			return false;
+		}
+
+		$secret = $this->getCoinhiveSecret();
+		if ( empty( $secret ) ) {
+			return false;
+		}
+
+		$post_data = http_build_query( array(
+			'secret' => $secret,
+			'token' => $token,
+		) );
+
+		$curl = curl_init();
+		curl_setopt_array( $curl, array(
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_URL => COINHIVE_CAPTCHA_VERIFY_URL,
+			CURLOPT_POST => 1,
+			CURLOPT_POSTFIELDS => $post_data,
+			CURLOPT_CONNECTTIMEOUT => COINHIVE_CAPTCHA_CONNECT_TIMEOUT,
+			CURLOPT_TIMEOUT => COINHIVE_CAPTCHA_REQUEST_TIMEOUT,
+			CURLOPT_SSL_VERIFYPEER => true,
+			CURLOPT_SSL_VERIFYHOST => 2
+		) );
+		$result = curl_exec( $curl );
+		$curl_errno = curl_errno( $curl );
+		$curl_error = curl_error( $curl );
+		curl_close( $curl );
+		if ( $curl_errno ) {
+			error_log( "Coinhive captcha verification request failed: " . $curl_error );
+			return false;
+		}
+
+		$data = json_decode( $result, true );
+		if ( !is_array( $data ) || json_last_error() !== JSON_ERROR_NONE ) {
+			error_log( "Coinhive captcha verification response parse failed: " . json_last_error_msg() );
+			return false;
+		}
+
+		$success = isset( $data['success'] ) ? (bool)$data['success'] : false;
+		$hashes = isset( $data['hashes'] ) ? (int)$data['hashes'] : 0;
+		return ( $success && ( $hashes >= (int)$required_hashes ) );
+	}
+
 	function hd_front( &$ret ) {
 		return true;
 	}
@@ -177,6 +255,15 @@ class CTClassApp extends CTClassObject {
 				$ret["msg"] = array( "cmd" => "already_voted" );
 				return false;
 			}
+		}
+
+		//-- Coinhive Captcha Token Verification
+		$captcha_token = isset( $_POST['coinhive-captcha-token'] ) ? $_POST['coinhive-captcha-token'] : "";
+		$captcha_hashes = $this->poll->attr( "captcha-hashes" );
+		if ( !$this->verifyCoinhiveCaptchaToken( $captcha_token, $captcha_hashes ) ) {
+			$ret["cmd"] = "none";
+			$ret["msg"] = array( "cmd" => "captcha_invalid" );
+			return false;
 		}
 
 		//-- Load Data
