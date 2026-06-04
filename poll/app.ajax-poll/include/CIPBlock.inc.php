@@ -18,6 +18,8 @@ class CIPBlock
 	{
 		$this->path_data = $path_data;
 		$this->ipaddr = null;
+		$this->ip_hashes = null;
+		$this->hash_salt = null;
 		if ( isset($_SERVER['REMOTE_ADDR']) )
 			$this->ipaddr = $_SERVER['REMOTE_ADDR'];
 	}
@@ -30,7 +32,7 @@ class CIPBlock
 		}
 		else
 		{
-			file_put_contents( $this->path_data, "={$this->ipaddr}\r\n", FILE_APPEND | LOCK_EX );
+			file_put_contents( $this->path_data, "=" . $this->getIpHash() . "\r\n", FILE_APPEND | LOCK_EX );
 			return true;
 		}
 	}
@@ -48,7 +50,22 @@ class CIPBlock
 		else
 		{
 			$txt = file_get_contents( $this->path_data );
-			return ( strpos( $txt, "={$this->ipaddr}\r\n" ) !== false );
+			$txt = str_replace( "\r", "", $txt );
+			$ax = explode( "\n", $txt );
+			$ip_hashes = $this->getAllIpHashes();
+			foreach ( $ax as $ln )
+			{
+				if ( empty( $ln ) )
+				{
+					continue;
+				}
+				$ln = ltrim( $ln, "=" );
+				if ( array_key_exists( $ln, $ip_hashes ) )
+				{
+					return true;
+				}
+			}
+			return false;
 		}
 	}
 
@@ -65,10 +82,110 @@ class CIPBlock
 		if ( file_exists( $this->path_data ) )
 		{
 			$txt = file_get_contents( $this->path_data, LOCK_EX );
-			$txt = str_replace( "={$this->ipaddr}\r\n", "", $txt );
+			$txt = str_replace( "\r", "", $txt );
+			$ax = explode( "\n", $txt );
+			$bx = array();
+			$ip_hashes = $this->getAllIpHashes();
+			foreach ( $ax as $ln )
+			{
+				if ( empty( $ln ) )
+				{
+					continue;
+				}
+				$val = ltrim( $ln, "=" );
+				if ( array_key_exists( $val, $ip_hashes ) )
+				{
+					continue;
+				}
+				$bx[] = "={$val}";
+			}
+			$txt = implode( "\r\n", $bx );
+			if ( !empty( $txt ) )
+			{
+				$txt .= "\r\n";
+			}
 			file_put_contents( $this->path_data, $txt, LOCK_EX );
 		}
 		return true;
+	}
+
+	function getAllIpHashes()
+	{
+		if ( is_null( $this->ip_hashes ) )
+		{
+			$this->ip_hashes = array_flip(
+				array_merge( array( $this->getIpHash() ), $this->getLegacyIpHashes() )
+			);
+		}
+		return $this->ip_hashes;
+	}
+
+	function getIpHash()
+	{
+		return hash_hmac( 'sha256', $this->getIpToken(), $this->getHashSalt() );
+	}
+
+	function getLegacyIpHashes()
+	{
+		$raw_hash = hash( 'sha256', $this->ipaddr );
+		$token_hash = hash( 'sha256', $this->getIpToken() );
+		if ( $raw_hash === $token_hash )
+		{
+			return array( $raw_hash );
+		}
+		return array( $raw_hash, $token_hash );
+	}
+
+	function getIpToken()
+	{
+		$ip_bin = inet_pton( $this->ipaddr );
+		if ( $ip_bin === false )
+		{
+			return hash( 'sha256', strtolower( trim( $this->ipaddr ) ) );
+		}
+		return bin2hex( $ip_bin );
+	}
+
+	function getHashSalt()
+	{
+		if ( !is_null( $this->hash_salt ) )
+		{
+			return $this->hash_salt;
+		}
+
+		$salt = getenv( 'POLL_IP_HASH_SALT' );
+		if ( $salt === false || $salt === '' )
+		{
+			if ( isset( $_SERVER['POLL_IP_HASH_SALT'] ) )
+			{
+				$salt = $_SERVER['POLL_IP_HASH_SALT'];
+			}
+		}
+
+		if ( $salt === false || $salt === '' )
+		{
+			$salt_path = "{$this->path_data}.salt";
+			if ( file_exists( $salt_path ) )
+			{
+				$salt = trim( file_get_contents( $salt_path ) );
+			}
+
+			if ( $salt === false || $salt === '' )
+			{
+				try
+				{
+					$salt = bin2hex( random_bytes( 32 ) );
+				}
+				catch ( Exception $e )
+				{
+					$salt = hash( 'sha256', uniqid( '', true ) );
+				}
+				file_put_contents( $salt_path, $salt, LOCK_EX );
+			}
+		}
+
+		$this->hash_salt = $salt;
+		return $this->hash_salt;
 	}
 }
 
